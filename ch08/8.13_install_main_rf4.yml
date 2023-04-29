@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Install packages on Linux
+      package:
+        name:
+          - "{{ apache_package }}"
+          - "{{ php_package }}"
+          - "{{ tmux_package }}"
+          - "{{ tree_package }}"
+        state: latest
+        update_cache: yes
