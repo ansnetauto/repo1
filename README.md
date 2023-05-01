@@ -1,5 +1,5 @@
  _____________________ 
-< ANSIBLE IS AWEWOME! >
+< ANSIBLE IS AWESOME! >
  --------------------- 
         \   ^__^
          \  (oo)\_______
