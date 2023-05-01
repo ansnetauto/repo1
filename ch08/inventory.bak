@@ -1,0 +1,3 @@
+192.168.127.161 apache_package=apache2 php_package=libapache2-mod-php tmux_package=tmux tree_package=tree
+192.168.127.162 apache_package=apache2 php_package=libapache2-mod-php tmux_package=tmux tree_package=tree
+192.168.127.151 apache_package=httpd php_package=php tmux_package=tmux tree_package=tree

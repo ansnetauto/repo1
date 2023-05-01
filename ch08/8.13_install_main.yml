@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Update package cache on Ubuntu
+      apt:
+        update_cache: yes
+      when: ansible_distribution=='Ubuntu'
+
+    - name: Install apache2 package on Ubuntu
+      apt:
+        name: apache2
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Update package cache on Fedora
+      dnf:
+        update_cache: yes
+      when: ansible_distribution=='Fedora'
+
+    - name: Install httpd package on Fedora
+      dnf:
+        name: httpd
+      when: ansible_distribution == "Fedora"

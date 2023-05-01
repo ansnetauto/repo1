@@ -1,0 +1,11 @@
+# YAML inline sequence
+- name: Install packages on Linux
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install htop, nmon, and iftop packages
+      package:
+        name: ['htop', 'nmon', 'iftop']
+        state: latest
+        update_cache: yes
