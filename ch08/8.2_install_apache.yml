@@ -1,8 +1,0 @@
----
-- hosts: all
-  become: true
-
-  tasks:
-  - name: Install apache2 package on Ubuntu servers
-    apt:
-      name: apache2

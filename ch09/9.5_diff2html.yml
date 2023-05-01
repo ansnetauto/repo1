@@ -1,8 +1,0 @@
----
-- name: Run compare.py
-  hosts: localhost
-  become: true
-
-  tasks:
-    - name: Run compare.py
-      command: python3 ./compare.py
