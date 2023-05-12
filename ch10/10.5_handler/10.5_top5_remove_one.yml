@@ -1,0 +1,17 @@
+- hosts: f38c1
+  become: true
+  vars:
+    file_path: "./top5.txt"
+  tasks:
+    - name: remove first line from file
+      shell: "tail -n +2 {{ file_path }} > {{ file_path }}.tmp && mv {{ file_path }}.tmp {{ file_path }}"
+
+    - name: read file
+      become: true
+      register: file_contents
+      shell: cat {{ file_path }}
+      check_mode: no
+
+    - name: display file contents
+      debug:
+        var: file_contents.stdout_lines

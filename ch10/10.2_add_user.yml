@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+  - name: create a new user
+    user:
+      name: jsmith
+      group: root

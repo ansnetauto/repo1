@@ -1,0 +1,40 @@
+- name: install httpd and PHP packages
+  package:
+    name:
+      - "{{ http_package_name }}"
+      - "{{ php_package_name }}"
+    state: latest
+  tags: [apache, httpd, ubuntu, fedora]
+
+- name: start httpd for Fedora/CentOS/Red Hat
+  tags: [apache, httpd, fedora]
+  service:
+    name: "{{ 'httpd' if ansible_distribution == 'Fedora' else omit }}"
+    state: started
+    enabled: yes
+  when: ansible_distribution == "Fedora"
+
+- name: change e-mail address for httpd admin
+  tags: [apache, httpd, fedora]
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^ServerAdmin'
+    line: ServerAdmin ckent@ansnetauto.com.au
+  when: ansible_distribution == "Fedora"
+  notify: restart_http
+
+- name: restart httpd for Fedora
+  tags: [apache, httpd, fedora]
+  service:
+    name: httpd
+    state: restarted
+  when: httpd.changed
+
+- name: copy default html file from site
+  tags: [apache, httpd, apache2]
+  copy:
+    src: default_site.html
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: '0644'

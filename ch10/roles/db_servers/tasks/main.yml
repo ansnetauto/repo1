@@ -1,0 +1,5 @@
+- name: install mariadb package
+  package:
+    name: "{{ 'mariadb-server' if ansible_distribution == 'Ubuntu' else 'mariadb' }}"
+    state: latest
+  tags: mariadb

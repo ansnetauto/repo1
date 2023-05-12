@@ -1,0 +1,4 @@
+- name: restart_http
+  service:
+    name: "{{ http_service }}"
+    state: restarted
