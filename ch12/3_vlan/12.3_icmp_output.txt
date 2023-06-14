@@ -1,0 +1,49 @@
+PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.
+64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=2.82 ms
+64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=2.76 ms
+64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=3.77 ms
+64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=3.39 ms
+
+--- 192.168.127.11 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 2.759/3.183/3.767/0.416 ms
+
+PING 192.168.127.21 (192.168.127.21) 56(84) bytes of data.
+64 bytes from 192.168.127.21: icmp_seq=1 ttl=255 time=25.9 ms
+64 bytes from 192.168.127.21: icmp_seq=2 ttl=255 time=10.0 ms
+64 bytes from 192.168.127.21: icmp_seq=3 ttl=255 time=16.0 ms
+64 bytes from 192.168.127.21: icmp_seq=4 ttl=255 time=26.0 ms
+
+--- 192.168.127.21 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3001ms
+rtt min/avg/max/mdev = 10.034/19.495/26.039/6.796 ms
+
+PING 192.168.127.22 (192.168.127.22) 56(84) bytes of data.
+64 bytes from 192.168.127.22: icmp_seq=1 ttl=255 time=26.9 ms
+64 bytes from 192.168.127.22: icmp_seq=2 ttl=255 time=27.1 ms
+64 bytes from 192.168.127.22: icmp_seq=3 ttl=255 time=13.5 ms
+64 bytes from 192.168.127.22: icmp_seq=4 ttl=255 time=9.98 ms
+
+--- 192.168.127.22 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 9.975/19.376/27.137/7.722 ms
+
+PING 192.168.127.23 (192.168.127.23) 56(84) bytes of data.
+64 bytes from 192.168.127.23: icmp_seq=1 ttl=255 time=18.0 ms
+64 bytes from 192.168.127.23: icmp_seq=2 ttl=255 time=14.3 ms
+64 bytes from 192.168.127.23: icmp_seq=3 ttl=255 time=13.0 ms
+64 bytes from 192.168.127.23: icmp_seq=4 ttl=255 time=49.7 ms
+
+--- 192.168.127.23 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 12.967/23.748/49.662/15.075 ms
+
+PING 192.168.127.24 (192.168.127.24) 56(84) bytes of data.
+64 bytes from 192.168.127.24: icmp_seq=1 ttl=255 time=25.5 ms
+64 bytes from 192.168.127.24: icmp_seq=2 ttl=255 time=10.7 ms
+64 bytes from 192.168.127.24: icmp_seq=3 ttl=255 time=11.0 ms
+64 bytes from 192.168.127.24: icmp_seq=4 ttl=255 time=55.6 ms
+
+--- 192.168.127.24 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 10.672/25.713/55.624/18.276 ms

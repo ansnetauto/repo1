@@ -1,0 +1,18 @@
+
+PLAY [Ansible Playbook for printing and appending to a file] *******************
+
+TASK [Check if file exists] ****************************************************
+ok: [localhost]
+
+TASK [Create file if it doesn't exist] *****************************************
+skipping: [localhost]
+
+TASK [Get current date and time] ***********************************************
+ok: [localhost]
+
+TASK [Append to file] **********************************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+

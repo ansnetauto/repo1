@@ -1,0 +1,10 @@
+---
+- name: Copy running-config to startup-config
+  hosts: router_type1
+  gather_facts: false
+  tasks:
+    - name: Copy running-config to startup-config
+      ios_command:
+        commands:
+          - "write memory"
+

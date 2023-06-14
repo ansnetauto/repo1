@@ -1,0 +1,9 @@
+- name: Remove backup directory
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Remove backup directory
+      file:
+        path: "./backup/"
+        state: absent

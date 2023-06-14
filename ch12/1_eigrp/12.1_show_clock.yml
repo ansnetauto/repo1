@@ -1,0 +1,15 @@
+---
+
+- name: Cisco show clock example
+  hosts: router_type1
+  gather_facts: false
+
+  tasks:
+    - name: run show clock on the routers
+      ios_command:
+        commands: show clock
+      register: output
+
+    - name: print output
+      debug:
+        var: output.stdout_lines

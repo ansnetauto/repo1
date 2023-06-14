@@ -1,0 +1,123 @@
+
+PLAY [Check and create backup directory on Ansible Control machine] ************
+
+TASK [Check if backup directory exists] ****************************************
+ok: [localhost]
+
+TASK [Create backup directory] *************************************************
+[WARNING]: Found variable using reserved name: remote_user
+changed: [localhost]
+
+PLAY [Backup Cisco IOS-XE Router and Switch configurations] ********************
+
+TASK [Run show run and save to a file] *****************************************
+changed: [r1]
+changed: [r2]
+changed: [r13]
+changed: [sw23]
+changed: [sw2]
+changed: [sw1]
+
+PLAY [Copy backup files to SCP server] *****************************************
+
+TASK [Run SCP command] *********************************************************
+changed: [localhost] => (item={'ip': '192.168.127.151', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.161', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.162', 'path': '/home/jdoe/'})
+
+PLAY [Remove the backup directory on Ansible Control Machine for security] *****
+
+TASK [Remove backup directory] *************************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r1                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r13                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw1                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw2                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw23                       : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+PLAY [Check and create backup directory on Ansible Control machine] ************
+
+TASK [Check if backup directory exists] ****************************************
+ok: [localhost]
+
+TASK [Create backup directory] *************************************************
+[WARNING]: Found variable using reserved name: remote_user
+changed: [localhost]
+
+PLAY [Backup Cisco IOS-XE Router and Switch configurations] ********************
+
+TASK [Run show run and save to a file] *****************************************
+changed: [r1]
+changed: [r2]
+changed: [r13]
+changed: [sw23]
+changed: [sw1]
+changed: [sw2]
+
+PLAY [Copy backup files to SCP server] *****************************************
+
+TASK [Run SCP command] *********************************************************
+changed: [localhost] => (item={'ip': '192.168.127.151', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.161', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.162', 'path': '/home/jdoe/'})
+
+PLAY [Remove the backup directory on Ansible Control Machine for security] *****
+
+TASK [Remove backup directory] *************************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r1                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r13                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw1                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw2                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw23                       : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+PLAY [Check and create backup directory on Ansible Control machine] ************
+
+TASK [Check if backup directory exists] ****************************************
+ok: [localhost]
+
+TASK [Create backup directory] *************************************************
+[WARNING]: Found variable using reserved name: remote_user
+changed: [localhost]
+
+PLAY [Backup Cisco IOS-XE Router and Switch configurations] ********************
+
+TASK [Run show run and save to a file] *****************************************
+changed: [r1]
+changed: [r2]
+changed: [r13]
+changed: [sw2]
+changed: [sw23]
+changed: [sw1]
+
+PLAY [Copy backup files to SCP server] *****************************************
+
+TASK [Run SCP command] *********************************************************
+changed: [localhost] => (item={'ip': '192.168.127.151', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.161', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.162', 'path': '/home/jdoe/'})
+
+PLAY [Remove the backup directory on Ansible Control Machine for security] *****
+
+TASK [Remove backup directory] *************************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r1                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r13                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw1                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw2                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw23                       : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

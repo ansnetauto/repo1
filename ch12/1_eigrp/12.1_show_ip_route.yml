@@ -1,0 +1,15 @@
+---
+- name: Run show ip route
+  hosts: router_type1
+  gather_facts: false
+
+  tasks:
+    - name: Execute show ip route
+      ios_command:
+        commands:
+          - show ip route
+      register: show_output
+
+    - name: Print show ip route output
+      debug:
+        var: show_output.stdout_lines

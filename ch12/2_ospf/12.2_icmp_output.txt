@@ -1,0 +1,39 @@
+PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.
+64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=25.4 ms
+64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=6.51 ms
+64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=5.30 ms
+64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=7.58 ms
+
+--- 192.168.127.11 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3012ms
+rtt min/avg/max/mdev = 5.301/11.187/25.365/8.225 ms
+
+PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.
+64 bytes from 192.168.127.12: icmp_seq=1 ttl=255 time=29.9 ms
+64 bytes from 192.168.127.12: icmp_seq=2 ttl=255 time=3.68 ms
+64 bytes from 192.168.127.12: icmp_seq=3 ttl=255 time=5.85 ms
+64 bytes from 192.168.127.12: icmp_seq=4 ttl=255 time=4.19 ms
+
+--- 192.168.127.12 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 3.684/10.894/29.857/10.977 ms
+
+PING 192.168.127.13 (192.168.127.13) 56(84) bytes of data.
+64 bytes from 192.168.127.13: icmp_seq=1 ttl=255 time=15.8 ms
+64 bytes from 192.168.127.13: icmp_seq=2 ttl=255 time=5.68 ms
+64 bytes from 192.168.127.13: icmp_seq=3 ttl=255 time=5.11 ms
+64 bytes from 192.168.127.13: icmp_seq=4 ttl=255 time=3.29 ms
+
+--- 192.168.127.13 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3012ms
+rtt min/avg/max/mdev = 3.288/7.459/15.758/4.872 ms
+
+PING 192.168.127.14 (192.168.127.14) 56(84) bytes of data.
+64 bytes from 192.168.127.14: icmp_seq=1 ttl=255 time=19.4 ms
+64 bytes from 192.168.127.14: icmp_seq=2 ttl=255 time=4.54 ms
+64 bytes from 192.168.127.14: icmp_seq=3 ttl=255 time=5.70 ms
+64 bytes from 192.168.127.14: icmp_seq=4 ttl=255 time=5.16 ms
+
+--- 192.168.127.14 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 4.540/8.705/19.419/6.199 ms

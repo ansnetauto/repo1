@@ -1,0 +1,29 @@
+[ios_xe_devices:vars]
+ansible_network_os=ios
+ansible_connection=network_cli
+ansible_command_timeout=300
+
+[router_type1]
+r1 ansible_host=192.168.127.11
+r2 ansible_host=192.168.127.12
+r13 ansible_host=192.168.127.113 # r13 is the correct hostname
+
+[switch_type1]
+sw1 ansible_host=192.168.127.21
+sw2 ansible_host=192.168.127.22
+sw23 ansible_host=192.168.127.123  # sw23 is the correct hostname
+
+[ios_xe_devices:children] # The OS is the same IOS-XE, so group similar devices together
+router_type1
+switch_type1
+
+[fedora]
+f38c1 ansible_host=192.168.127.151 # SCP server 1
+
+[ubuntu]
+u23c1 ansible_host=192.168.127.161 # SCP server 2
+u23c2  ansible_host=192.168.127.162 # SCP server 3
+
+[file_servers:children]
+fedora
+ubuntu
