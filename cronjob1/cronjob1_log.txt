@@ -1,0 +1,1940 @@
+ ____________________________________________________________ 
+/ PLAY [Check and create backup directory on Ansible Control \
+\ machine]                                                   /
+ ------------------------------------------------------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ _________________________________________ 
+< TASK [Check if backup directory exists] >
+ ----------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost]
+ ________________________________ 
+< TASK [Create backup directory] >
+ -------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [localhost]
+ _____________________________________________________________ 
+< PLAY [Backup Cisco IOS-XE Router and Switch configurations] >
+ ------------------------------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ________________________________________ 
+< TASK [Run show run and save to a file] >
+ ---------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [r1]
+changed: [r13]
+changed: [r2]
+changed: [sw1]
+changed: [sw2]
+changed: [sw23]
+ _____________________________________ 
+< TASK [Print message when completed] >
+ ------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [sw1] => {
+    "msg": "sw1 - Backup to local storage completed"
+}
+ok: [r1] => {
+    "msg": "r1 - Backup to local storage completed"
+}
+ok: [sw2] => {
+    "msg": "sw2 - Backup to local storage completed"
+}
+ok: [r2] => {
+    "msg": "r2 - Backup to local storage completed"
+}
+ok: [r13] => {
+    "msg": "r13 - Backup to local storage completed"
+}
+ok: [sw23] => {
+    "msg": "sw23 - Backup to local storage completed"
+}
+ ________________________________________ 
+< PLAY [Copy backup files to SCP server] >
+ ---------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ________________________ 
+< TASK [Run SCP command] >
+ ------------------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [localhost] => (item={'ip': '192.168.127.151', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.161', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.162', 'path': '/home/jdoe/'})
+ _____________________________________ 
+< TASK [Print message when completed] >
+ ------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "msg": "Device backup file transfer to SCP completed"
+}
+ ________________________________________________________ 
+< PLAY [Remove backup folder on Ansible Control Machine] >
+ -------------------------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ________________________________ 
+< TASK [Remove backup directory] >
+ -------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [localhost]
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r1                         : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r13                        : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw1                        : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw2                        : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw23                       : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ____________________________________________________________ 
+/ PLAY [Check and create backup directory on Ansible Control \
+\ machine]                                                   /
+ ------------------------------------------------------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ _________________________________________ 
+< TASK [Check if backup directory exists] >
+ ----------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost]
+ ________________________________ 
+< TASK [Create backup directory] >
+ -------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [localhost]
+ _____________________________________________________________ 
+< PLAY [Backup Cisco IOS-XE Router and Switch configurations] >
+ ------------------------------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ________________________________________ 
+< TASK [Run show run and save to a file] >
+ ---------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [r13]
+changed: [r2]
+changed: [r1]
+changed: [sw2]
+changed: [sw1]
+changed: [sw23]
+ _____________________________________ 
+< TASK [Print message when completed] >
+ ------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [sw1] => {
+    "msg": "sw1 - Backup to local storage completed"
+}
+ok: [sw2] => {
+    "msg": "sw2 - Backup to local storage completed"
+}
+ok: [r1] => {
+    "msg": "r1 - Backup to local storage completed"
+}
+ok: [r2] => {
+    "msg": "r2 - Backup to local storage completed"
+}
+ok: [r13] => {
+    "msg": "r13 - Backup to local storage completed"
+}
+ok: [sw23] => {
+    "msg": "sw23 - Backup to local storage completed"
+}
+ ________________________________________ 
+< PLAY [Copy backup files to SCP server] >
+ ---------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ________________________ 
+< TASK [Run SCP command] >
+ ------------------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [localhost] => (item={'ip': '192.168.127.151', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.161', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.162', 'path': '/home/jdoe/'})
+ _____________________________________ 
+< TASK [Print message when completed] >
+ ------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "msg": "Device backup file transfer to SCP completed"
+}
+ ________________________________________________________ 
+< PLAY [Remove backup folder on Ansible Control Machine] >
+ -------------------------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ________________________________ 
+< TASK [Remove backup directory] >
+ -------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [localhost]
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r1                         : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r13                        : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw1                        : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw2                        : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw23                       : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ____________________________________________________________ 
+/ PLAY [Check and create backup directory on Ansible Control \
+\ machine]                                                   /
+ ------------------------------------------------------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ _________________________________________ 
+< TASK [Check if backup directory exists] >
+ ----------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost]
+ ________________________________ 
+< TASK [Create backup directory] >
+ -------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [localhost]
+ _____________________________________________________________ 
+< PLAY [Backup Cisco IOS-XE Router and Switch configurations] >
+ ------------------------------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ________________________________________ 
+< TASK [Run show run and save to a file] >
+ ---------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [r13]
+changed: [r2]
+changed: [r1]
+changed: [sw1]
+changed: [sw2]
+changed: [sw23]
+ _____________________________________ 
+< TASK [Print message when completed] >
+ ------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [sw1] => {
+    "msg": "sw1 - Backup to local storage completed"
+}
+ok: [sw2] => {
+    "msg": "sw2 - Backup to local storage completed"
+}
+ok: [r1] => {
+    "msg": "r1 - Backup to local storage completed"
+}
+ok: [r2] => {
+    "msg": "r2 - Backup to local storage completed"
+}
+ok: [r13] => {
+    "msg": "r13 - Backup to local storage completed"
+}
+ok: [sw23] => {
+    "msg": "sw23 - Backup to local storage completed"
+}
+ ________________________________________ 
+< PLAY [Copy backup files to SCP server] >
+ ---------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ________________________ 
+< TASK [Run SCP command] >
+ ------------------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [localhost] => (item={'ip': '192.168.127.151', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.161', 'path': '/home/jdoe/'})
+changed: [localhost] => (item={'ip': '192.168.127.162', 'path': '/home/jdoe/'})
+ _____________________________________ 
+< TASK [Print message when completed] >
+ ------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "msg": "Device backup file transfer to SCP completed"
+}
+ ________________________________________________________ 
+< PLAY [Remove backup folder on Ansible Control Machine] >
+ -------------------------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ________________________________ 
+< TASK [Remove backup directory] >
+ -------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+changed: [localhost]
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r1                         : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r13                        : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw1                        : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw2                        : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw23                       : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ______________________________________ 
+< PLAY [Ping hosts and display output] >
+ -------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ___________________ 
+< TASK [Ping hosts] >
+ ------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => (item=192.168.127.151)
+ok: [localhost] => (item=192.168.127.11)
+ok: [localhost] => (item=192.168.127.12)
+ok: [localhost] => (item=192.168.127.113)
+ok: [localhost] => (item=192.168.127.21)
+ok: [localhost] => (item=192.168.127.22)
+ok: [localhost] => (item=192.168.127.123)
+ _______________________ 
+< TASK [Display output] >
+ ----------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "ping_output.results | map(attribute='stdout_lines') | list": [
+        [
+            "PING 192.168.127.151 (192.168.127.151) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.151: icmp_seq=1 ttl=64 time=3.52 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=2 ttl=64 time=0.375 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=3 ttl=64 time=0.345 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=4 ttl=64 time=0.480 ms",
+            "",
+            "--- 192.168.127.151 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3029ms",
+            "rtt min/avg/max/mdev = 0.345/1.180/3.523/1.353 ms"
+        ],
+        [
+            "PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=4.01 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=9.97 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=5.97 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=7.35 ms",
+            "",
+            "--- 192.168.127.11 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3017ms",
+            "rtt min/avg/max/mdev = 4.007/6.824/9.972/2.170 ms"
+        ],
+        [
+            "PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.12: icmp_seq=1 ttl=255 time=5.41 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=2 ttl=255 time=3.17 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=3 ttl=255 time=4.22 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=4 ttl=255 time=9.49 ms",
+            "",
+            "--- 192.168.127.12 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 3.172/5.572/9.488/2.395 ms"
+        ],
+        [
+            "PING 192.168.127.113 (192.168.127.113) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.113: icmp_seq=1 ttl=255 time=6.90 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=2 ttl=255 time=6.85 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=3 ttl=255 time=3.85 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=4 ttl=255 time=4.44 ms",
+            "",
+            "--- 192.168.127.113 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 3.848/5.507/6.895/1.381 ms"
+        ],
+        [
+            "PING 192.168.127.21 (192.168.127.21) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.21: icmp_seq=1 ttl=255 time=23.8 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=2 ttl=255 time=25.8 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=3 ttl=255 time=20.0 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=4 ttl=255 time=59.1 ms",
+            "",
+            "--- 192.168.127.21 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 20.009/32.173/59.069/15.666 ms"
+        ],
+        [
+            "PING 192.168.127.22 (192.168.127.22) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.22: icmp_seq=1 ttl=255 time=30.1 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=2 ttl=255 time=20.7 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=3 ttl=255 time=33.5 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=4 ttl=255 time=35.2 ms",
+            "",
+            "--- 192.168.127.22 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 20.665/29.868/35.176/5.620 ms"
+        ],
+        [
+            "PING 192.168.127.123 (192.168.127.123) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.123: icmp_seq=1 ttl=255 time=45.8 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=2 ttl=255 time=14.0 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=3 ttl=255 time=16.1 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=4 ttl=255 time=37.2 ms",
+            "",
+            "--- 192.168.127.123 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3002ms",
+            "rtt min/avg/max/mdev = 13.951/28.267/45.784/13.598 ms"
+        ]
+    ]
+}
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ______________________________________ 
+< PLAY [Ping hosts and display output] >
+ -------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ___________________ 
+< TASK [Ping hosts] >
+ ------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => (item=192.168.127.151)
+ok: [localhost] => (item=192.168.127.11)
+ok: [localhost] => (item=192.168.127.12)
+ok: [localhost] => (item=192.168.127.113)
+ok: [localhost] => (item=192.168.127.21)
+ok: [localhost] => (item=192.168.127.22)
+ok: [localhost] => (item=192.168.127.123)
+ _______________________ 
+< TASK [Display output] >
+ ----------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "ping_output.results | map(attribute='stdout_lines') | list": [
+        [
+            "PING 192.168.127.151 (192.168.127.151) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.151: icmp_seq=1 ttl=64 time=0.418 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=2 ttl=64 time=0.307 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=3 ttl=64 time=0.387 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=4 ttl=64 time=0.313 ms",
+            "",
+            "--- 192.168.127.151 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3107ms",
+            "rtt min/avg/max/mdev = 0.307/0.356/0.418/0.047 ms"
+        ],
+        [
+            "PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=6.77 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=7.03 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=9.24 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=4.30 ms",
+            "",
+            "--- 192.168.127.11 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3002ms",
+            "rtt min/avg/max/mdev = 4.296/6.833/9.240/1.751 ms"
+        ],
+        [
+            "PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.12: icmp_seq=1 ttl=255 time=3.40 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=2 ttl=255 time=5.48 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=3 ttl=255 time=4.19 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=4 ttl=255 time=4.92 ms",
+            "",
+            "--- 192.168.127.12 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 3.398/4.496/5.479/0.781 ms"
+        ],
+        [
+            "PING 192.168.127.113 (192.168.127.113) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.113: icmp_seq=1 ttl=255 time=4.09 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=2 ttl=255 time=5.29 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=3 ttl=255 time=3.61 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=4 ttl=255 time=6.08 ms",
+            "",
+            "--- 192.168.127.113 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3011ms",
+            "rtt min/avg/max/mdev = 3.608/4.766/6.084/0.975 ms"
+        ],
+        [
+            "PING 192.168.127.21 (192.168.127.21) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.21: icmp_seq=1 ttl=255 time=11.3 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=2 ttl=255 time=22.1 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=3 ttl=255 time=15.5 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=4 ttl=255 time=28.5 ms",
+            "",
+            "--- 192.168.127.21 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3002ms",
+            "rtt min/avg/max/mdev = 11.254/19.336/28.505/6.550 ms"
+        ],
+        [
+            "PING 192.168.127.22 (192.168.127.22) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.22: icmp_seq=1 ttl=255 time=51.2 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=2 ttl=255 time=19.6 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=3 ttl=255 time=23.5 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=4 ttl=255 time=19.4 ms",
+            "",
+            "--- 192.168.127.22 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 19.398/28.418/51.207/13.258 ms"
+        ],
+        [
+            "PING 192.168.127.123 (192.168.127.123) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.123: icmp_seq=1 ttl=255 time=27.9 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=2 ttl=255 time=25.0 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=3 ttl=255 time=11.6 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=4 ttl=255 time=13.6 ms",
+            "",
+            "--- 192.168.127.123 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3012ms",
+            "rtt min/avg/max/mdev = 11.579/19.511/27.869/7.021 ms"
+        ]
+    ]
+}
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ______________________________________ 
+< PLAY [Ping hosts and display output] >
+ -------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ___________________ 
+< TASK [Ping hosts] >
+ ------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => (item=192.168.127.151)
+ok: [localhost] => (item=192.168.127.11)
+ok: [localhost] => (item=192.168.127.12)
+ok: [localhost] => (item=192.168.127.113)
+ok: [localhost] => (item=192.168.127.21)
+ok: [localhost] => (item=192.168.127.22)
+ok: [localhost] => (item=192.168.127.123)
+ _______________________ 
+< TASK [Display output] >
+ ----------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "ping_output.results | map(attribute='stdout_lines') | list": [
+        [
+            "PING 192.168.127.151 (192.168.127.151) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.151: icmp_seq=1 ttl=64 time=0.365 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=2 ttl=64 time=0.491 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=3 ttl=64 time=0.441 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=4 ttl=64 time=0.312 ms",
+            "",
+            "--- 192.168.127.151 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3099ms",
+            "rtt min/avg/max/mdev = 0.312/0.402/0.491/0.068 ms"
+        ],
+        [
+            "PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=5.61 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=16.3 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=3.46 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=4.46 ms",
+            "",
+            "--- 192.168.127.11 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 3.462/7.463/16.327/5.173 ms"
+        ],
+        [
+            "PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.12: icmp_seq=1 ttl=255 time=4.23 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=2 ttl=255 time=5.80 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=3 ttl=255 time=3.95 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=4 ttl=255 time=6.46 ms",
+            "",
+            "--- 192.168.127.12 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 3.950/5.109/6.460/1.050 ms"
+        ],
+        [
+            "PING 192.168.127.113 (192.168.127.113) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.113: icmp_seq=1 ttl=255 time=4.55 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=2 ttl=255 time=4.13 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=3 ttl=255 time=4.55 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=4 ttl=255 time=6.23 ms",
+            "",
+            "--- 192.168.127.113 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 4.132/4.866/6.233/0.807 ms"
+        ],
+        [
+            "PING 192.168.127.21 (192.168.127.21) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.21: icmp_seq=1 ttl=255 time=19.5 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=2 ttl=255 time=18.0 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=3 ttl=255 time=12.8 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=4 ttl=255 time=24.7 ms",
+            "",
+            "--- 192.168.127.21 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 12.818/18.758/24.654/4.216 ms"
+        ],
+        [
+            "PING 192.168.127.22 (192.168.127.22) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.22: icmp_seq=1 ttl=255 time=19.7 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=2 ttl=255 time=28.8 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=3 ttl=255 time=22.2 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=4 ttl=255 time=13.6 ms",
+            "",
+            "--- 192.168.127.22 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 13.601/21.072/28.819/5.458 ms"
+        ],
+        [
+            "PING 192.168.127.123 (192.168.127.123) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.123: icmp_seq=1 ttl=255 time=23.2 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=2 ttl=255 time=23.3 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=3 ttl=255 time=17.1 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=4 ttl=255 time=42.0 ms",
+            "",
+            "--- 192.168.127.123 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 17.146/26.421/41.987/9.328 ms"
+        ]
+    ]
+}
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ______________________________________ 
+< PLAY [Ping hosts and display output] >
+ -------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ___________________ 
+< TASK [Ping hosts] >
+ ------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => (item=192.168.127.151)
+ok: [localhost] => (item=192.168.127.11)
+ok: [localhost] => (item=192.168.127.12)
+ok: [localhost] => (item=192.168.127.113)
+ok: [localhost] => (item=192.168.127.21)
+ok: [localhost] => (item=192.168.127.22)
+ok: [localhost] => (item=192.168.127.123)
+ _______________________ 
+< TASK [Display output] >
+ ----------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "ping_output.results | map(attribute='stdout_lines') | list": [
+        [
+            "PING 192.168.127.151 (192.168.127.151) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.151: icmp_seq=1 ttl=64 time=0.544 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=2 ttl=64 time=0.351 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=3 ttl=64 time=0.267 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=4 ttl=64 time=0.467 ms",
+            "",
+            "--- 192.168.127.151 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3058ms",
+            "rtt min/avg/max/mdev = 0.267/0.407/0.544/0.106 ms"
+        ],
+        [
+            "PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=4.72 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=5.47 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=6.81 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=4.21 ms",
+            "",
+            "--- 192.168.127.11 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 4.205/5.301/6.807/0.978 ms"
+        ],
+        [
+            "PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.12: icmp_seq=1 ttl=255 time=4.19 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=2 ttl=255 time=5.98 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=3 ttl=255 time=8.72 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=4 ttl=255 time=5.70 ms",
+            "",
+            "--- 192.168.127.12 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3007ms",
+            "rtt min/avg/max/mdev = 4.188/6.146/8.723/1.636 ms"
+        ],
+        [
+            "PING 192.168.127.113 (192.168.127.113) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.113: icmp_seq=1 ttl=255 time=4.78 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=2 ttl=255 time=5.75 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=3 ttl=255 time=3.71 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=4 ttl=255 time=4.52 ms",
+            "",
+            "--- 192.168.127.113 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 3.710/4.688/5.749/0.727 ms"
+        ],
+        [
+            "PING 192.168.127.21 (192.168.127.21) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.21: icmp_seq=1 ttl=255 time=20.7 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=2 ttl=255 time=19.3 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=3 ttl=255 time=124 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=4 ttl=255 time=40.2 ms",
+            "",
+            "--- 192.168.127.21 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 19.263/51.118/124.300/43.055 ms"
+        ],
+        [
+            "PING 192.168.127.22 (192.168.127.22) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.22: icmp_seq=1 ttl=255 time=56.6 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=2 ttl=255 time=27.8 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=3 ttl=255 time=22.7 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=4 ttl=255 time=11.3 ms",
+            "",
+            "--- 192.168.127.22 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 11.267/29.597/56.554/16.681 ms"
+        ],
+        [
+            "PING 192.168.127.123 (192.168.127.123) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.123: icmp_seq=1 ttl=255 time=19.4 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=2 ttl=255 time=26.0 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=3 ttl=255 time=63.8 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=4 ttl=255 time=19.4 ms",
+            "",
+            "--- 192.168.127.123 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 19.376/32.128/63.758/18.459 ms"
+        ]
+    ]
+}
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ______________________________________ 
+< PLAY [Ping hosts and display output] >
+ -------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ___________________ 
+< TASK [Ping hosts] >
+ ------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => (item=192.168.127.151)
+ok: [localhost] => (item=192.168.127.11)
+ok: [localhost] => (item=192.168.127.12)
+ok: [localhost] => (item=192.168.127.113)
+ok: [localhost] => (item=192.168.127.21)
+ok: [localhost] => (item=192.168.127.22)
+ok: [localhost] => (item=192.168.127.123)
+ _______________________ 
+< TASK [Display output] >
+ ----------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "ping_output.results | map(attribute='stdout_lines') | list": [
+        [
+            "PING 192.168.127.151 (192.168.127.151) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.151: icmp_seq=1 ttl=64 time=0.427 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=2 ttl=64 time=0.392 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=3 ttl=64 time=0.324 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=4 ttl=64 time=0.396 ms",
+            "",
+            "--- 192.168.127.151 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3050ms",
+            "rtt min/avg/max/mdev = 0.324/0.384/0.427/0.037 ms"
+        ],
+        [
+            "PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=13.1 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=5.95 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=4.56 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=8.03 ms",
+            "",
+            "--- 192.168.127.11 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 4.555/7.904/13.087/3.237 ms"
+        ],
+        [
+            "PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.12: icmp_seq=1 ttl=255 time=4.61 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=2 ttl=255 time=4.02 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=3 ttl=255 time=4.45 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=4 ttl=255 time=3.59 ms",
+            "",
+            "--- 192.168.127.12 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 3.590/4.165/4.609/0.396 ms"
+        ],
+        [
+            "PING 192.168.127.113 (192.168.127.113) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.113: icmp_seq=1 ttl=255 time=4.80 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=2 ttl=255 time=4.57 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=3 ttl=255 time=7.20 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=4 ttl=255 time=3.96 ms",
+            "",
+            "--- 192.168.127.113 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 3.962/5.131/7.200/1.232 ms"
+        ],
+        [
+            "PING 192.168.127.21 (192.168.127.21) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.21: icmp_seq=1 ttl=255 time=31.5 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=2 ttl=255 time=30.4 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=3 ttl=255 time=23.9 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=4 ttl=255 time=26.8 ms",
+            "",
+            "--- 192.168.127.21 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3001ms",
+            "rtt min/avg/max/mdev = 23.925/28.148/31.484/2.982 ms"
+        ],
+        [
+            "PING 192.168.127.22 (192.168.127.22) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.22: icmp_seq=1 ttl=255 time=27.6 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=2 ttl=255 time=22.2 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=3 ttl=255 time=11.4 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=4 ttl=255 time=35.2 ms",
+            "",
+            "--- 192.168.127.22 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 11.414/24.098/35.198/8.658 ms"
+        ],
+        [
+            "PING 192.168.127.123 (192.168.127.123) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.123: icmp_seq=1 ttl=255 time=24.0 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=2 ttl=255 time=17.2 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=3 ttl=255 time=15.2 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=4 ttl=255 time=33.5 ms",
+            "",
+            "--- 192.168.127.123 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 15.205/22.470/33.518/7.154 ms"
+        ]
+    ]
+}
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ______________________________________ 
+< PLAY [Ping hosts and display output] >
+ -------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ___________________ 
+< TASK [Ping hosts] >
+ ------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => (item=192.168.127.151)
+ok: [localhost] => (item=192.168.127.11)
+ok: [localhost] => (item=192.168.127.12)
+ok: [localhost] => (item=192.168.127.113)
+ok: [localhost] => (item=192.168.127.21)
+ok: [localhost] => (item=192.168.127.22)
+ok: [localhost] => (item=192.168.127.123)
+ _______________________ 
+< TASK [Display output] >
+ ----------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "ping_output.results | map(attribute='stdout_lines') | list": [
+        [
+            "PING 192.168.127.151 (192.168.127.151) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.151: icmp_seq=1 ttl=64 time=0.361 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=2 ttl=64 time=0.333 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=3 ttl=64 time=0.390 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=4 ttl=64 time=0.477 ms",
+            "",
+            "--- 192.168.127.151 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3096ms",
+            "rtt min/avg/max/mdev = 0.333/0.390/0.477/0.053 ms"
+        ],
+        [
+            "PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=17.3 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=3.45 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=3.81 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=3.73 ms",
+            "",
+            "--- 192.168.127.11 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 3.450/7.071/17.302/5.908 ms"
+        ],
+        [
+            "PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.12: icmp_seq=1 ttl=255 time=13.3 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=2 ttl=255 time=3.83 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=3 ttl=255 time=8.23 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=4 ttl=255 time=10.9 ms",
+            "",
+            "--- 192.168.127.12 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 3.830/9.055/13.262/3.503 ms"
+        ],
+        [
+            "PING 192.168.127.113 (192.168.127.113) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.113: icmp_seq=1 ttl=255 time=14.6 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=2 ttl=255 time=5.23 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=3 ttl=255 time=4.38 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=4 ttl=255 time=4.28 ms",
+            "",
+            "--- 192.168.127.113 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 4.281/7.115/14.577/4.323 ms"
+        ],
+        [
+            "PING 192.168.127.21 (192.168.127.21) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.21: icmp_seq=1 ttl=255 time=17.0 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=2 ttl=255 time=15.1 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=3 ttl=255 time=15.5 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=4 ttl=255 time=36.7 ms",
+            "",
+            "--- 192.168.127.21 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3002ms",
+            "rtt min/avg/max/mdev = 15.069/21.048/36.683/9.055 ms"
+        ],
+        [
+            "PING 192.168.127.22 (192.168.127.22) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.22: icmp_seq=1 ttl=255 time=19.1 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=2 ttl=255 time=35.5 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=3 ttl=255 time=19.1 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=4 ttl=255 time=17.9 ms",
+            "",
+            "--- 192.168.127.22 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 17.855/22.878/35.549/7.331 ms"
+        ],
+        [
+            "PING 192.168.127.123 (192.168.127.123) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.123: icmp_seq=1 ttl=255 time=15.0 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=2 ttl=255 time=9.97 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=3 ttl=255 time=50.7 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=4 ttl=255 time=24.5 ms",
+            "",
+            "--- 192.168.127.123 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 9.972/25.041/50.650/15.682 ms"
+        ]
+    ]
+}
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ______________________________________ 
+< PLAY [Ping hosts and display output] >
+ -------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ___________________ 
+< TASK [Ping hosts] >
+ ------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => (item=192.168.127.151)
+ok: [localhost] => (item=192.168.127.11)
+ok: [localhost] => (item=192.168.127.12)
+ok: [localhost] => (item=192.168.127.113)
+ok: [localhost] => (item=192.168.127.21)
+ok: [localhost] => (item=192.168.127.22)
+ok: [localhost] => (item=192.168.127.123)
+ _______________________ 
+< TASK [Display output] >
+ ----------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "ping_output.results | map(attribute='stdout_lines') | list": [
+        [
+            "PING 192.168.127.151 (192.168.127.151) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.151: icmp_seq=1 ttl=64 time=0.419 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=2 ttl=64 time=0.300 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=3 ttl=64 time=0.352 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=4 ttl=64 time=0.385 ms",
+            "",
+            "--- 192.168.127.151 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3052ms",
+            "rtt min/avg/max/mdev = 0.300/0.364/0.419/0.043 ms"
+        ],
+        [
+            "PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=7.07 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=6.75 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=4.47 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=4.65 ms",
+            "",
+            "--- 192.168.127.11 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 4.466/5.732/7.069/1.182 ms"
+        ],
+        [
+            "PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.12: icmp_seq=1 ttl=255 time=3.92 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=2 ttl=255 time=5.74 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=3 ttl=255 time=4.76 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=4 ttl=255 time=5.38 ms",
+            "",
+            "--- 192.168.127.12 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 3.919/4.951/5.744/0.692 ms"
+        ],
+        [
+            "PING 192.168.127.113 (192.168.127.113) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.113: icmp_seq=1 ttl=255 time=5.22 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=2 ttl=255 time=3.41 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=3 ttl=255 time=4.83 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=4 ttl=255 time=3.78 ms",
+            "",
+            "--- 192.168.127.113 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 3.412/4.310/5.215/0.738 ms"
+        ],
+        [
+            "PING 192.168.127.21 (192.168.127.21) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.21: icmp_seq=1 ttl=255 time=16.4 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=2 ttl=255 time=27.9 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=3 ttl=255 time=10.7 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=4 ttl=255 time=34.8 ms",
+            "",
+            "--- 192.168.127.21 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 10.683/22.440/34.792/9.448 ms"
+        ],
+        [
+            "PING 192.168.127.22 (192.168.127.22) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.22: icmp_seq=1 ttl=255 time=20.1 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=2 ttl=255 time=28.1 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=3 ttl=255 time=20.9 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=4 ttl=255 time=23.5 ms",
+            "",
+            "--- 192.168.127.22 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3001ms",
+            "rtt min/avg/max/mdev = 20.106/23.172/28.147/3.133 ms"
+        ],
+        [
+            "PING 192.168.127.123 (192.168.127.123) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.123: icmp_seq=1 ttl=255 time=23.9 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=2 ttl=255 time=14.5 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=3 ttl=255 time=11.2 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=4 ttl=255 time=59.0 ms",
+            "",
+            "--- 192.168.127.123 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 11.204/27.126/58.962/18.958 ms"
+        ]
+    ]
+}
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ______________________________________ 
+< PLAY [Ping hosts and display output] >
+ -------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ___________________ 
+< TASK [Ping hosts] >
+ ------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => (item=192.168.127.151)
+ok: [localhost] => (item=192.168.127.11)
+ok: [localhost] => (item=192.168.127.12)
+ok: [localhost] => (item=192.168.127.113)
+ok: [localhost] => (item=192.168.127.21)
+ok: [localhost] => (item=192.168.127.22)
+ok: [localhost] => (item=192.168.127.123)
+ _______________________ 
+< TASK [Display output] >
+ ----------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "ping_output.results | map(attribute='stdout_lines') | list": [
+        [
+            "PING 192.168.127.151 (192.168.127.151) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.151: icmp_seq=1 ttl=64 time=0.417 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=2 ttl=64 time=0.389 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=3 ttl=64 time=0.378 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=4 ttl=64 time=0.387 ms",
+            "",
+            "--- 192.168.127.151 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3104ms",
+            "rtt min/avg/max/mdev = 0.378/0.392/0.417/0.014 ms"
+        ],
+        [
+            "PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=5.79 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=18.0 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=7.66 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=5.10 ms",
+            "",
+            "--- 192.168.127.11 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 5.101/9.136/17.999/5.201 ms"
+        ],
+        [
+            "PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.12: icmp_seq=1 ttl=255 time=5.08 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=2 ttl=255 time=5.55 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=3 ttl=255 time=4.06 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=4 ttl=255 time=3.32 ms",
+            "",
+            "--- 192.168.127.12 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 3.318/4.501/5.553/0.870 ms"
+        ],
+        [
+            "PING 192.168.127.113 (192.168.127.113) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.113: icmp_seq=1 ttl=255 time=4.94 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=2 ttl=255 time=10.6 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=3 ttl=255 time=13.0 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=4 ttl=255 time=12.1 ms",
+            "",
+            "--- 192.168.127.113 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3014ms",
+            "rtt min/avg/max/mdev = 4.935/10.164/13.008/3.140 ms"
+        ],
+        [
+            "PING 192.168.127.21 (192.168.127.21) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.21: icmp_seq=1 ttl=255 time=47.6 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=2 ttl=255 time=38.3 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=3 ttl=255 time=19.2 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=4 ttl=255 time=51.3 ms",
+            "",
+            "--- 192.168.127.21 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 19.245/39.112/51.276/12.406 ms"
+        ],
+        [
+            "PING 192.168.127.22 (192.168.127.22) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.22: icmp_seq=1 ttl=255 time=19.0 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=2 ttl=255 time=20.2 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=3 ttl=255 time=13.5 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=4 ttl=255 time=38.7 ms",
+            "",
+            "--- 192.168.127.22 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 13.536/22.861/38.720/9.494 ms"
+        ],
+        [
+            "PING 192.168.127.123 (192.168.127.123) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.123: icmp_seq=1 ttl=255 time=33.2 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=2 ttl=255 time=13.7 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=3 ttl=255 time=19.7 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=4 ttl=255 time=19.8 ms",
+            "",
+            "--- 192.168.127.123 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 13.702/21.613/33.196/7.132 ms"
+        ]
+    ]
+}
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ ______________________________________ 
+< PLAY [Ping hosts and display output] >
+ -------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ ___________________ 
+< TASK [Ping hosts] >
+ ------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => (item=192.168.127.151)
+ok: [localhost] => (item=192.168.127.11)
+ok: [localhost] => (item=192.168.127.12)
+ok: [localhost] => (item=192.168.127.113)
+ok: [localhost] => (item=192.168.127.21)
+ok: [localhost] => (item=192.168.127.22)
+ok: [localhost] => (item=192.168.127.123)
+ _______________________ 
+< TASK [Display output] >
+ ----------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ok: [localhost] => {
+    "ping_output.results | map(attribute='stdout_lines') | list": [
+        [
+            "PING 192.168.127.151 (192.168.127.151) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.151: icmp_seq=1 ttl=64 time=0.341 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=2 ttl=64 time=0.276 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=3 ttl=64 time=0.467 ms",
+            "64 bytes from 192.168.127.151: icmp_seq=4 ttl=64 time=0.315 ms",
+            "",
+            "--- 192.168.127.151 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3081ms",
+            "rtt min/avg/max/mdev = 0.276/0.349/0.467/0.071 ms"
+        ],
+        [
+            "PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=5.52 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=4.01 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=4.66 ms",
+            "64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=3.91 ms",
+            "",
+            "--- 192.168.127.11 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 3.905/4.520/5.515/0.642 ms"
+        ],
+        [
+            "PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.12: icmp_seq=1 ttl=255 time=9.18 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=2 ttl=255 time=4.05 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=3 ttl=255 time=3.96 ms",
+            "64 bytes from 192.168.127.12: icmp_seq=4 ttl=255 time=3.64 ms",
+            "",
+            "--- 192.168.127.12 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 3.642/5.207/9.177/2.296 ms"
+        ],
+        [
+            "PING 192.168.127.113 (192.168.127.113) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.113: icmp_seq=1 ttl=255 time=4.23 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=2 ttl=255 time=3.06 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=3 ttl=255 time=6.18 ms",
+            "64 bytes from 192.168.127.113: icmp_seq=4 ttl=255 time=6.54 ms",
+            "",
+            "--- 192.168.127.113 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 3.058/5.001/6.536/1.423 ms"
+        ],
+        [
+            "PING 192.168.127.21 (192.168.127.21) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.21: icmp_seq=1 ttl=255 time=39.8 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=2 ttl=255 time=13.8 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=3 ttl=255 time=16.9 ms",
+            "64 bytes from 192.168.127.21: icmp_seq=4 ttl=255 time=29.6 ms",
+            "",
+            "--- 192.168.127.21 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3005ms",
+            "rtt min/avg/max/mdev = 13.766/25.002/39.793/10.391 ms"
+        ],
+        [
+            "PING 192.168.127.22 (192.168.127.22) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.22: icmp_seq=1 ttl=255 time=19.6 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=2 ttl=255 time=18.2 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=3 ttl=255 time=46.2 ms",
+            "64 bytes from 192.168.127.22: icmp_seq=4 ttl=255 time=19.0 ms",
+            "",
+            "--- 192.168.127.22 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3004ms",
+            "rtt min/avg/max/mdev = 18.204/25.737/46.153/11.796 ms"
+        ],
+        [
+            "PING 192.168.127.123 (192.168.127.123) 56(84) bytes of data.",
+            "64 bytes from 192.168.127.123: icmp_seq=1 ttl=255 time=9.56 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=2 ttl=255 time=31.0 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=3 ttl=255 time=18.7 ms",
+            "64 bytes from 192.168.127.123: icmp_seq=4 ttl=255 time=34.1 ms",
+            "",
+            "--- 192.168.127.123 ping statistics ---",
+            "4 packets transmitted, 4 received, 0% packet loss, time 3003ms",
+            "rtt min/avg/max/mdev = 9.556/23.332/34.064/9.822 ms"
+        ]
+    ]
+}
+ ____________ 
+< PLAY RECAP >
+ ------------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+PLAY [Check and create backup directory on Ansible Control machine] ************
+
+TASK [Check if backup directory exists] ****************************************
+ok: [localhost]
+
+TASK [Create backup directory] *************************************************
+changed: [localhost]
+
+PLAY [Backup Cisco IOS-XE Router and Switch configurations] ********************
+
+TASK [Run show run and save to a file] *****************************************
+changed: [r1]
+
+PLAY [Copy backup files to SCP server] *****************************************
+
+TASK [Run SCP command] *********************************************************
+changed: [localhost]
+
+TASK [Display SCP command output] **********************************************
+ok: [localhost] => {
+    "scp_output.stdout_lines": [
+        "",
+        "Enter passphrase for key '/home/jdoe/.ssh/id_ed25519': ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.0MB/s   00:00    "
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r1                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+PLAY [Check and create backup directory on Ansible Control machine] ************
+
+TASK [Check if backup directory exists] ****************************************
+ok: [localhost]
+
+TASK [Create backup directory] *************************************************
+skipping: [localhost]
+
+PLAY [Backup Cisco IOS-XE Router and Switch configurations] ********************
+
+TASK [Run show run and save to a file] *****************************************
+changed: [r1]
+
+PLAY [Copy backup files to SCP server] *****************************************
+
+TASK [Run SCP command] *********************************************************
+changed: [localhost]
+
+TASK [Display SCP command output] **********************************************
+ok: [localhost] => {
+    "scp_output.stdout_lines": [
+        "",
+        "Enter passphrase for key '/home/jdoe/.ssh/id_ed25519': ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     2.9MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     2.6MB/s   00:00    "
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+r1                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+PLAY [Check and create backup directory on Ansible Control machine] ************
+
+TASK [Check if backup directory exists] ****************************************
+ok: [localhost]
+
+TASK [Create backup directory] *************************************************
+skipping: [localhost]
+
+PLAY [Backup Cisco IOS-XE Router and Switch configurations] ********************
+
+TASK [Run show run and save to a file] *****************************************
+changed: [r2]
+changed: [r1]
+changed: [r13]
+changed: [sw1]
+changed: [sw23]
+changed: [sw2]
+
+PLAY [Copy backup files to SCP server] *****************************************
+
+TASK [Run SCP command] *********************************************************
+changed: [localhost]
+
+TASK [Display SCP command output] **********************************************
+ok: [localhost] => {
+    "scp_output.stdout_lines": [
+        "",
+        "Enter passphrase for key '/home/jdoe/.ssh/id_ed25519': ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.3MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.6MB/s   00:00    ",
+        "",
+        "r2-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r2-running-config.cfg                         100% 3388     4.6MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.5MB/s   00:00    ",
+        "",
+        "r13-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "r13-running-config.cfg                        100% 3374     3.1MB/s   00:00    ",
+        "",
+        "sw1-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw1-running-config.cfg                        100% 3870     2.7MB/s   00:00    ",
+        "",
+        "sw23-running-config.cfg                         0%    0     0.0KB/s   --:-- ETA",
+        "sw23-running-config.cfg                       100% 3872     3.3MB/s   00:00    ",
+        "",
+        "sw2-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw2-running-config.cfg                        100% 3853     3.7MB/s   00:00    "
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+r1                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r13                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw1                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw2                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw23                       : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+PLAY [Check and create backup directory on Ansible Control machine] ************
+
+TASK [Check if backup directory exists] ****************************************
+ok: [localhost]
+
+TASK [Create backup directory] *************************************************
+skipping: [localhost]
+
+PLAY [Backup Cisco IOS-XE Router and Switch configurations] ********************
+
+TASK [Run show run and save to a file] *****************************************
+changed: [r1]
+changed: [r2]
+changed: [r13]
+changed: [sw23]
+changed: [sw1]
+changed: [sw2]
+
+PLAY [Copy backup files to SCP server] *****************************************
+
+TASK [Run SCP command] *********************************************************
+changed: [localhost]
+
+TASK [Display SCP command output] **********************************************
+ok: [localhost] => {
+    "scp_output.stdout_lines": [
+        "",
+        "Enter passphrase for key '/home/jdoe/.ssh/id_ed25519': ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.1MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.7MB/s   00:00    ",
+        "",
+        "r2-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r2-running-config.cfg                         100% 3388     3.7MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.8MB/s   00:00    ",
+        "",
+        "r13-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "r13-running-config.cfg                        100% 3374     2.9MB/s   00:00    ",
+        "",
+        "sw1-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw1-running-config.cfg                        100% 3870     4.1MB/s   00:00    ",
+        "",
+        "sw23-running-config.cfg                         0%    0     0.0KB/s   --:-- ETA",
+        "sw23-running-config.cfg                       100% 3872   439.1KB/s   00:00    ",
+        "",
+        "sw2-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw2-running-config.cfg                        100% 3853     4.6MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.5MB/s   00:00    ",
+        "",
+        "r13-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "r13-running-config.cfg                        100% 3374     2.7MB/s   00:00    ",
+        "",
+        "r2-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r2-running-config.cfg                         100% 3388     2.6MB/s   00:00    ",
+        "",
+        "sw23-running-config.cfg                         0%    0     0.0KB/s   --:-- ETA",
+        "sw23-running-config.cfg                       100% 3872     2.7MB/s   00:00    ",
+        "",
+        "sw1-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw1-running-config.cfg                        100% 3870     3.2MB/s   00:00    ",
+        "",
+        "sw2-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw2-running-config.cfg                        100% 3853     3.2MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.0MB/s   00:00    ",
+        "",
+        "r2-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r2-running-config.cfg                         100% 3388     3.3MB/s   00:00    ",
+        "",
+        "r13-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "r13-running-config.cfg                        100% 3374     2.5MB/s   00:00    ",
+        "",
+        "sw23-running-config.cfg                         0%    0     0.0KB/s   --:-- ETA",
+        "sw23-running-config.cfg                       100% 3872     3.5MB/s   00:00    ",
+        "",
+        "sw1-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw1-running-config.cfg                        100% 3870     4.6MB/s   00:00    ",
+        "",
+        "sw2-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw2-running-config.cfg                        100% 3853     3.8MB/s   00:00    "
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+r1                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r13                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw1                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw2                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw23                       : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+PLAY [Check and create backup directory on Ansible Control machine] ************
+
+TASK [Check if backup directory exists] ****************************************
+ok: [localhost]
+
+TASK [Create backup directory] *************************************************
+skipping: [localhost]
+
+PLAY [Backup Cisco IOS-XE Router and Switch configurations] ********************
+
+TASK [Run show run and save to a file] *****************************************
+changed: [r13]
+changed: [r2]
+changed: [r1]
+changed: [sw23]
+changed: [sw1]
+changed: [sw2]
+
+PLAY [Copy backup files to SCP server] *****************************************
+
+TASK [Run SCP command] *********************************************************
+changed: [localhost]
+
+TASK [Display SCP command output] **********************************************
+ok: [localhost] => {
+    "scp_output.stdout_lines": [
+        "",
+        "Enter passphrase for key '/home/jdoe/.ssh/id_ed25519': ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     2.7MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     2.7MB/s   00:00    ",
+        "",
+        "r2-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r2-running-config.cfg                         100% 3388     2.8MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     2.9MB/s   00:00    ",
+        "",
+        "r13-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "r13-running-config.cfg                        100% 3374     3.4MB/s   00:00    ",
+        "",
+        "sw1-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw1-running-config.cfg                        100% 3870     3.8MB/s   00:00    ",
+        "",
+        "sw23-running-config.cfg                         0%    0     0.0KB/s   --:-- ETA",
+        "sw23-running-config.cfg                       100% 3872     3.0MB/s   00:00    ",
+        "",
+        "sw2-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw2-running-config.cfg                        100% 3853     2.2MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.5MB/s   00:00    ",
+        "",
+        "r13-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "r13-running-config.cfg                        100% 3374     2.6MB/s   00:00    ",
+        "",
+        "r2-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r2-running-config.cfg                         100% 3388     2.8MB/s   00:00    ",
+        "",
+        "sw23-running-config.cfg                         0%    0     0.0KB/s   --:-- ETA",
+        "sw23-running-config.cfg                       100% 3872     3.1MB/s   00:00    ",
+        "",
+        "sw1-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw1-running-config.cfg                        100% 3870     4.2MB/s   00:00    ",
+        "",
+        "sw2-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw2-running-config.cfg                        100% 3853     4.3MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     2.3MB/s   00:00    ",
+        "",
+        "r2-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r2-running-config.cfg                         100% 3388     2.4MB/s   00:00    ",
+        "",
+        "r13-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "r13-running-config.cfg                        100% 3374     3.2MB/s   00:00    ",
+        "",
+        "sw23-running-config.cfg                         0%    0     0.0KB/s   --:-- ETA",
+        "sw23-running-config.cfg                       100% 3872     4.0MB/s   00:00    ",
+        "",
+        "sw1-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw1-running-config.cfg                        100% 3870     4.8MB/s   00:00    ",
+        "",
+        "sw2-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw2-running-config.cfg                        100% 3853     4.6MB/s   00:00    ",
+        "",
+        "r13-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "r13-running-config.cfg                        100% 3374     3.0MB/s   00:00    ",
+        "",
+        "r2-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r2-running-config.cfg                         100% 3388     4.3MB/s   00:00    ",
+        "",
+        "r1-running-config.cfg                           0%    0     0.0KB/s   --:-- ETA",
+        "r1-running-config.cfg                         100% 3371     3.0MB/s   00:00    ",
+        "",
+        "sw23-running-config.cfg                         0%    0     0.0KB/s   --:-- ETA",
+        "sw23-running-config.cfg                       100% 3872     3.6MB/s   00:00    ",
+        "",
+        "sw1-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw1-running-config.cfg                        100% 3870     4.2MB/s   00:00    ",
+        "",
+        "sw2-running-config.cfg                          0%    0     0.0KB/s   --:-- ETA",
+        "sw2-running-config.cfg                        100% 3853     4.4MB/s   00:00    "
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+r1                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r13                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw1                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw2                        : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+sw23                       : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

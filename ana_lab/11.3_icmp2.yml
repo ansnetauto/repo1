@@ -1,0 +1,9 @@
+---
+- hosts: router_type2
+  gather_facts: true # specifying true to run gather_facts
+
+  tasks:
+
+  - name: Test reachability to Cisco IOS XE Routers
+    net_ping:
+      dest: "{{ ansible_host }}"

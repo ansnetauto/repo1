@@ -1,0 +1,19 @@
+PING 192.168.127.11 (192.168.127.11) 56(84) bytes of data.
+64 bytes from 192.168.127.11: icmp_seq=1 ttl=255 time=3.68 ms
+64 bytes from 192.168.127.11: icmp_seq=2 ttl=255 time=3.44 ms
+64 bytes from 192.168.127.11: icmp_seq=3 ttl=255 time=3.36 ms
+64 bytes from 192.168.127.11: icmp_seq=4 ttl=255 time=4.70 ms
+
+--- 192.168.127.11 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3003ms
+rtt min/avg/max/mdev = 3.362/3.793/4.695/0.533 ms
+
+PING 192.168.127.12 (192.168.127.12) 56(84) bytes of data.
+From 192.168.127.150 icmp_seq=1 Destination Host Unreachable
+From 192.168.127.150 icmp_seq=2 Destination Host Unreachable
+From 192.168.127.150 icmp_seq=3 Destination Host Unreachable
+From 192.168.127.150 icmp_seq=4 Destination Host Unreachable
+
+--- 192.168.127.12 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, time 3085ms
+pipe 3

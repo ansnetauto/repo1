@@ -1,0 +1,23 @@
+---
+- name: Cisco show version example
+  hosts: routers,switches
+  gather_facts: false
+
+  vars_prompt:
+    - name: ansible_user
+      prompt: "Enter the ansible_user name:"
+      private: no
+
+    - name: ansible_password
+      prompt: "Enter the ansible_password:"
+      private: yes
+
+  tasks:
+    - name: run show clock on the routers
+      ios_command:
+        commands: show clock
+      register: output
+
+    - name: print output
+      debug:
+        var: output.stdout_lines
