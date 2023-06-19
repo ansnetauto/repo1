@@ -1,0 +1,69 @@
+---
+- name: Cisco vWLC File upload playbook
+  hosts: wlc
+  gather_facts: no
+
+  vars_files:
+    - vars.yml
+
+  vars:
+    total_host_count: "{{ ansible_play_hosts | length }}"
+    file_upload_time_estimation: "{{ total_host_count | int * 60 + 300 }}"
+
+  pre_tasks:
+    - debug:
+        var: total_host_count
+    - debug:
+        var: file_upload_time_estimation
+
+  tasks:
+    - name: Execute show boot command
+      aireos_command:
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_user }}"
+        commands:
+          - show boot
+      register: output1
+
+    - debug:
+        var: output1.stdout_lines
+
+    - name: Change WLC transfer settings
+      aireos_command:
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_user }}"
+#        provider:
+#          host: "{{ inventory_hostname }}"
+        timeout: 300
+        commands:
+          - transfer download mode ftp
+          - transfer download username "{{ sftp_user }}"
+          - transfer download password "{{ sftp_password }}"
+          - transfer download serverip "{{ sftp_server }}"
+          - transfer download path /home/jdoe/
+          - transfer download filename "{{ aes_file_name }}"
+
+    - name: Start new aireos file transfer
+      aireos_command:
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_pass }}"
+#        provider:
+#          host: "{{ inventory_hostname }}"
+#          timeout: "{{ file_upload_time_estimation | int }}"
+        commands:
+          - command: 'transfer download start'
+            prompt: '(y/N)'
+            answer: 'y'
+        wait_for: result[0] contains "File transfer is successful"
+
+    - name: EXECUTE show boot COMMAND after file upload
+      aireos_command:
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_pass }}"
+        commands:
+          - show boot
+      register: output2
+
+    - name: Image versions after the reload
+      debug:
+        var: output2.stdout_lines

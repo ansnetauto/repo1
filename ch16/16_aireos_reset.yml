@@ -1,0 +1,23 @@
+---
+- name: Hard reload (reboot) WLCs
+  hosts: wlc
+  gather_facts: no
+
+  vars_files: vars.yml
+
+  tasks:
+    - name: Execute reset command
+      #aireos_command:
+      community.network.aireos_command:
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_pass }}"
+        commands:
+          - command: 'reset system'
+            prompt: '(y/N)'
+            answer: 'y'
+      timeout: 120
+      ignore_errors: yes
+
+    - name: Print a completion message
+      debug:
+        msg: "All Tasks completed!"

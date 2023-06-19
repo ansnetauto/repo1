@@ -1,0 +1,79 @@
+---
+- name: Cisco vWLC File upload playbook
+  hosts: wlc
+  gather_facts: no
+
+  vars_files:
+    - vars.yml
+
+  vars:
+    wlc_version: 8.10.185.0
+    total_host_count: "{{ ansible_play_hosts | length }}" # Calculates number of hosts
+    file_download_time_estimation: "{{ total_host_count | int * 30 + 300 }}" # Calculate download time, base time is 5 minutes and for every host, add 30 seconds more.
+
+  pre_tasks:
+    - debug:
+        var: total_host_count
+
+    - debug:
+        var: file_download_time_estimation # Turns download time to a variable
+
+  tasks:
+    - name: Execute show boot command
+      aireos_command:
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_pass }}"
+        commands: show boot
+        wait_for:
+          - result[0] not contains '{{ wlc_version }}'
+      register: output1
+
+    - debug:
+        var: output1.stdout_lines
+
+    - name: Change WLC transfer settings # Changes setting for file download
+      aireos_command:
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_user }}"
+        timeout: 30
+        commands:
+          - transfer download mode ftp
+          - transfer download username "{{ sftp_user }}"
+          - transfer download password "{{ sftp_password }}"
+          - transfer download serverip "{{ sftp_server }}"
+          - transfer download path /home/jdoe/
+          - transfer download filename "{{ aes_file_name }}"
+
+    - name: Start new aireos file transfer # Transfers .aes file
+      aireos_command:
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_pass }}"
+        timeout: "{{ file_download_time_estimation | int }}"
+        commands:
+          - command: 'transfer download start'
+            prompt: '(y/N)'
+            answer: 'y'
+        wait_for: result[0] contains "File transfer is successful"
+
+    - name: Execute show boot command after file upload
+      aireos_command:
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_pass }}"
+        commands:
+          - show boot
+      register: output2
+
+    - name: Image versions after the reload
+      debug:
+        var: output2.stdout_lines
+
+    - name: Execute reset command
+      aireos_command:
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_pass }}"
+        commands:
+          - command: 'reset system'
+            prompt: '(y/N)'
+            answer: 'y'
+      timeout: 120
+      ignore_errors: yes

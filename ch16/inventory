@@ -1,0 +1,7 @@
+[wlc:vars]
+ansible_connection=network_cli
+ansible_network_os=aireos
+ansible_command_timeout=180
+
+[wlc]
+wlc01 ansible_host=192.168.0.201

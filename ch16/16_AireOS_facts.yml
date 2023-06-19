@@ -1,0 +1,21 @@
+---
+- hosts: wlc
+  gather_facts: no
+
+  vars_files: vars.yml
+
+  tasks:
+  - name: Run show sysinfo on remote devices
+    community.network.aireos_command:
+      commands: show sysinfo
+
+  - name: Run show sysinfo and check to see if output contains Cisco Controller
+    community.network.aireos_command:
+      commands: show sysinfo
+      wait_for: result[0] contains 'Cisco Controller'
+
+  - name: Run multiple commands on remote nodes
+    community.network.aireos_command:
+      commands:
+        - show sysinfo
+        - show interface summary
