@@ -1,0 +1,16 @@
+---
+- name: App and Threat Update
+  hosts: palo
+  gather_facts: false
+  connection: local
+  vars_files: vars.yml
+
+  collections:
+    -  paloaltonetworks.panos
+
+tasks:
+ - name: Request content check
+    panos_op:
+      provider: '{{ provider }}'
+      cmd: <request><content><upgrade><check></check></upgrade></content></request>
+      cmd_is_xml: true

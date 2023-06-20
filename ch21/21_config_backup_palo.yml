@@ -1,0 +1,14 @@
+---
+- name: Palo Alto FW config backup
+  hosts: palo
+  gather_facts: true
+  connection: local
+  vars_files: vars.yml
+
+  tasks:
+
+  - name: backup configuration
+    get_url:
+      url:  "{{ backup_config}}"
+      dest: /home/jdoe/repo1/ch21/ PAN01_backup_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}.xml
+      validate_certs: false

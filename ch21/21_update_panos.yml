@@ -1,0 +1,50 @@
+---
+- name: PANOS Upgrade
+  hosts: palo
+  gather_facts: false
+  connection: local
+  vars_files: vars.yml
+
+  collections:
+    -  paloaltonetworks.panos
+
+  vars:
+    base_version: '10.2.0'
+    desired_version: '10.2.4'
+
+  tasks:
+  - name: Download PAN-OS base version
+    panos_software:
+      provider: '{{ provider }}'
+      version: '{{ base_version }}'
+      install: false
+      restart: false
+
+  - name: Download PAN-OS desired version
+    panos_software:
+      provider: '{{ provider }}'
+      version: '{{ desired_version }}'
+      install: false
+      restart: false
+    register: download_desired
+
+  - name: Install PAN-OS version and Reboot
+    panos_software:
+      provider: '{{ provider }}'
+      version: '{{ desired_version }}'
+      install: true
+      restart: true
+
+  - name: Pause for Restart Checks
+    pause:
+      minutes: 10
+
+  - name: Check if device is ready
+    panos_op:
+      provider: '{{ provider }}'
+      cmd: 'show chassis-ready'
+    changed_when: false
+    register: chassis
+    until: chassis is not failed and (chassis.stdout | from_json).response.result == 'yes'
+    retries: 60
+    delay: 60      

@@ -1,0 +1,50 @@
+---
+- name: App and Threat Update
+  hosts: palo
+  gather_facts: false
+  connection: local
+  vars_files: vars.yml
+
+  collections:
+    -  paloaltonetworks.panos
+
+
+  tasks:
+  - name: Request content check
+    panos_op:
+      provider: '{{ provider }}'
+      cmd: <request><content><upgrade><check></check></upgrade></content></request>
+      cmd_is_xml: true
+    
+
+  - name: Download latest content update
+    panos_op:
+      provider: '{{ provider }}'
+      cmd: <request><content><upgrade><download><latest></latest></download></upgrade></content></request>
+      cmd_is_xml: true
+    register: download_content
+
+  - name: Check content download status
+    panos_op:
+      provider: '{{ provider }}'
+      cmd: 'show jobs id {{ (download_content.stdout | from_json).response.result.job }}'
+    register: download_job
+    until: download_job is not failed and (download_job.stdout | from_json).response.result.job.status == 'FIN'
+    retries: 30
+    delay: 60
+
+  - name: Install latest content update
+    panos_op:
+      provider: '{{ provider }}'
+      cmd: <request><content><upgrade><install><version>latest</version></install></upgrade></content></request>
+      cmd_is_xml: true
+    register: install_content
+
+  - name: Check content install status
+    panos_op:
+      provider: '{{ provider }}'
+      cmd: 'show jobs id {{ (install_content.stdout | from_json).response.result.job }}'
+    register: install_job
+    until: install_job is not failed and (install_job.stdout | from_json).response.result.job.status == 'FIN'
+    retries: 30
+    delay: 60
