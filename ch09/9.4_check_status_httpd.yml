@@ -3,6 +3,8 @@
   hosts: fedora
   become: true
   gather_facts: true # this is the default settings but only a declarative line
+  collections:
+    - ansible.builtin
 
   tasks:
   - name: Start httpd service
