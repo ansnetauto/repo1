@@ -5,5 +5,5 @@
 
   tasks:
   - name: Install dragonball package on Ubuntu servers
-    apt:
+    ansible.builtin.apt:
       name: dragonball
