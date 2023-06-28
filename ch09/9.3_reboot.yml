@@ -2,6 +2,8 @@
 - hosts: fedora
   become: yes
   gather_facts: false
+  collections:
+    - ansible.builtin
 
   tasks:
     - name: Reboot Fedora server
