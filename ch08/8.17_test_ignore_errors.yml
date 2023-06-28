@@ -6,9 +6,9 @@
 
   tasks:
     - name: Failing task
-      command: /bin/DodgyApp
+      ansible.builtin.command: /bin/DodgyApp
 #      ignore_errors: yes
 
     - name: Non-failing task
-      debug:
+      ansible.builtin.debug:
         msg: "Work hard, play hard and always keep at school!"
