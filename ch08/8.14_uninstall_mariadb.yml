@@ -2,6 +2,8 @@
 - name: Uninstall mariadb
   hosts: db_server # specify target group here
   become: true
+  collections:
+    - ansible.builtin
 
   tasks:
 #    - name: Install htop, nmon, and iftop packages
