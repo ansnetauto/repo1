@@ -1,10 +1,10 @@
 ---
 - hosts: db_server # specify target group here
   become: true
-  pre_tasks: # mandates this play to run with the priority.				
   collections:
-    - ansible.builtin
+    - ansible.builtin  
 
+  pre_tasks: # mandates this play to run with the priority.
   - name: install updates (Ubuntu)
     apt:
       upgrade: dist
