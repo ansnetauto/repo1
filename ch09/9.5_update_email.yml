@@ -1,11 +1,9 @@
 ---
-- hosts: all
-  gather_facts: false
+- hosts: fedora
+  become: true
   collections:
     - ansible.builtin
 
-- hosts: fedora
-  become: true
   tasks:
   - name: change e-mail address for httpd admin
     lineinfile:
