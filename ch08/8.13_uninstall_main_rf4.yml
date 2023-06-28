@@ -4,7 +4,7 @@
 
   tasks:
     - name: Uninstall packages on Linux
-      package:
+      ansible.builtin.package:
         name:
           - "{{ apache_package }}"
           - "{{ php_package }}"
