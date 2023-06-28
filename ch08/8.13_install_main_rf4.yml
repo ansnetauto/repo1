@@ -1,6 +1,8 @@
 ---
 - hosts: all
   become: true
+  collections:
+    - ansible.builtin
 
   tasks:
     - name: Install packages on Linux
