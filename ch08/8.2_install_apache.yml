@@ -4,5 +4,5 @@
 
   tasks:
   - name: Install apache2 package on Ubuntu servers
-    apt:
+    ansible.builtin.apt:
       name: apache2
