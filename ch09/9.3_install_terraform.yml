@@ -2,9 +2,10 @@
 - hosts: f38c1
   become: true
   gather_facts: false
+  collections:
+    - ansible.builtin
 
   tasks:
-
   - name: Install unzip
     package:
       name: unzip # Install unzip on f38c1
