@@ -1,6 +1,8 @@
 - name: Copy httpd.conf file from f38c1 to local directory
   hosts: f38c1
   gather_facts: false
+  collections:
+    - ansible.builtin
 
   tasks:
     - name: Copy httpd.conf file
