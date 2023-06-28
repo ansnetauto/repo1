@@ -5,11 +5,11 @@
 
   tasks:
     - name: Update package cache on Red Hat distros
-      dnf:
+      ansible.builtin.dnf:
         update_cache: yes
       when: ansible_distribution in ['Fedora', 'Red Hat', 'CentOS']
 
     - name: Update package cache on Debian distros
-      apt:
+      ansible.builtin.apt:
         update_cache: yes
       when: ansible_distribution in ['Ubuntu', 'Debian',  'Pop!_OS']
