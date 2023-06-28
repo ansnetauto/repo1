@@ -5,15 +5,15 @@
 
   tasks:
   - name: Update repository index
-    apt:
+    ansible.builtin.apt:
       update_cache: yes
 
   - name: Remove apache2 package
-    apt:
+    ansible.builtin.apt:
       name:  apache2
       state: absent
 
   - name: Remove php support for apache2
-    apt:
+    ansible.builtin.apt:
       name: libapache2-mod-php
       state: absent
