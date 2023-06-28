@@ -5,23 +5,23 @@
 
   tasks:
     - name: Install Samba packages
-      dnf:
+      community.general.dnf:
         name: [samba, samba-client] # Note, we are using the list method
         state: present
 
     - name: Enable Samba service
-      systemd: # we need system module for Fedora
+      ansible.builtin.systemd: # we need system module for Fedora
         name: smb # service name is smb
         state: started # Ensure that the service is started
         enabled: yes # start a the start-up
 
     - name: Ensure sambashare group exists
-      group:
+      ansible.builtin.group:
         name: sambashare
         state: present
 
     - name: Create Samba user account
-      user: # user is Ansible module for users
+      ansible.builtin.user: # user is Ansible module for users
         name: sambajdoe
         password: "{{ 'Super5cretPassw0rd' | password_hash('sha512_crypt', 'SaltyFish') }}"
         shell: /sbin/nologin
@@ -29,4 +29,4 @@
         append: yes
 
     - name: Add sambajdoe to smbpasswd file
-      command: echo -ne "Super5cretPassw0rd\nSuper5cretPassw0rd\n" | smbpasswd -a -s sambajdoe
+      ansible.builtin.command: echo -ne "Super5cretPassw0rd\nSuper5cretPassw0rd\n" | smbpasswd -a -s sambajdoe
