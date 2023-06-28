@@ -1,6 +1,8 @@
 ---
 - hosts: db_server
   become: true
+  collections:
+    - ansible.builtin
 
   tasks:
   - name: Start MariaDB service
