@@ -5,12 +5,12 @@
 
   tasks:
   - name: Update repository index
-    apt:
+    ansible.builtin.apt:
       update_cache: yes
 
   - name: Install apache2 package
-    apt:
+    ansible.builtin.apt:
       name:  apache2
   - name: add php support for apache2
-    apt:
+    ansible.builtin.apt:
       name: libapache2-mod-php
