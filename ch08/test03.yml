@@ -5,7 +5,7 @@
 
   tasks:
     - name: Install htop, nmon, and iftop packages
-      package:
+      ansible.builtin.package:
         name: >-
           - htop
           - nmon
