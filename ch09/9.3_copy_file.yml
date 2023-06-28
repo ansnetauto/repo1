@@ -2,6 +2,8 @@
 - hosts: all
   become: true
   pre_tasks:
+  collections:
+    - ansible.builtin
 
   - name: install updates (Ubuntu)
     tags: always
