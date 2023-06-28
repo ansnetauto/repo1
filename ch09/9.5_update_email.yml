@@ -7,7 +7,6 @@
 - hosts: fedora
   become: true
   tasks:
-
   - name: change e-mail address for httpd admin
     lineinfile:
       path: /etc/httpd/conf/httpd.conf
