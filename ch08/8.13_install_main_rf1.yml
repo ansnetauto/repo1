@@ -1,6 +1,8 @@
 ---
 - hosts: all
   become: true
+  collections:
+    - ansible.builtin
 
   tasks:
     - name: Update package cache on Ubuntu
