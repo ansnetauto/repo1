@@ -1,0 +1,7 @@
+---
+- hosts: my_hosts
+  gather_facts: false
+  tasks:
+    - name: Print Hi, Tom!
+      debug:
+        msg: "Hi, {{ my_variable | default('Tom') }}!"

@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - block:
+        - name: Set my_variable within the block
+          set_fact:
+            my_variable: 'Barbie'
+      always:
+        - name: Print Hi, Tom!
+          debug:
+            msg: "Hi, {{ my_variable | default('Tom') }}!"
