@@ -10,10 +10,10 @@
 
   tasks:
     - name: Check current IOS-XE version from gathered ios facts
-      ios_facts:
+      cisco.ios.ios_facts:
 
     - name: Debug current and new IOS versions
-      debug:
+      ansible.builtin.debug:
         msg:
           - "Current version: {{ ansible_net_version }}"
           - "New version    : {{ new_ios_version }}"
@@ -21,11 +21,11 @@
     - name: Quit playbook if ansible_net_version equals new_ios_version or current IOS is newer
       block:
         - name: Fail if versions are equal or current IOS is newer
-          fail:
+          ansible.builtin.fail:
             msg: "Current IOS version is already up to date."
           when: ansible_net_version >= new_ios_version
         - name: Debug Message
-          debug:
+          ansible.builtin.debug:
             msg: "Continuing with playbook, upgrading IOS version..."
           ignore_errors: true
 
@@ -35,16 +35,16 @@
 
   tasks:
     - name: Get ansible date/time facts
-      setup:
+      ansible.builtin.setup:
         filter: "ansible_date_time"
         gather_subset: "!all"
 
     - name: Store DTG as a fact
-      set_fact:
+      ansible.builtin.set_fact:
         DTG: "{{ ansible_date_time.date }}"
 
     - name: Create Directory for backup
-      file:
+      ansible.builtin.file:
         path: "~/ch15/{{ DTG }}"
         state: directory
         mode: "0775"
@@ -77,24 +77,24 @@
       register: copy_result
 
     - name: Display copy result
-      debug:
+      ansible.builtin.debug:
         var: copy_result
 
 ###### 4
     - name: Save running-config to startup-config
-      ios_config:
+      cisco.ios.ios_config:
         save_when: always
 
 ###### 5
 
     - name: Extend SSH timer to 99 mins
-      ios_config:
+      cisco.ios.ios_config:
         commands:
           - line vty 0 15
           - exec-timeout 99 0
 
     - name: Copy new IOS from SFTP server 192.168.127.151
-      cli_command:
+      ansible.netcommon.cli_command:
          command: 'copy sftp://{{ sftp_username }}:{{ sftp_password }}@{{ sftp_server_ip }}/{{ ios_file_name }} flash:/{{ ios_file_name }}'
          check_all: True
          prompt:
@@ -104,61 +104,61 @@
 
 ##### 6
     - name: Verify MD5 value on the flash
-      ios_command:
+      cisco.ios.ios_command:
         commands: verify /md5 flash:{{ ios_file_name }} {{ios_file_md5 }}
       register: ios_file_md5_flash_result
 
-    - debug:
+    - ansible.builtin.debug:
         var: ios_file_md5_flash_result.stdout
 
     - name: Locate MD5 value of new IOS on router flash
-      set_fact:
+      ansible.builtin.set_fact:
         ios_file_md5_flash: "{{ ios_file_md5_flash_result.stdout[0] | regex_search('[a-f0-9]{32}') }}"
 
-    - debug:
+    - ansible.builtin.debug:
         msg:
           - "ios_file_md5 [flash:/]          : {{ ios_file_md5_flash }}"
           - "ios_file_md5 [Correct Value]    : {{ ios_file_md5 }}"
 
     - name: Fail if MD5 Values are different
-      fail: msg="Failed, flash IOS MD5 value DOES NOT MATCH the correct IOS file MD5 value. "
+      ansible.builtin.fail: msg="Failed, flash IOS MD5 value DOES NOT MATCH the correct IOS file MD5 value. "
       when: ios_file_md5_flash != ios_file_md5 or 'Verified' not in ios_file_md5_flash_result.stdout[0]
 
     - name: Pass if MD5 values are the same
-      debug:
+      ansible.builtin.debug:
         msg: Passed, flash IOS MD5 MATCH provided IOS file MD5.
       when: ios_file_md5_flash == ios_file_md5 and 'Verified' in ios_file_md5_flash_result.stdout[0]
 
 ##### 7
     - name: Clear the old boot variable
-      ios_config:
+      cisco.ios.ios_config:
         commands:
           - "no boot system"
         save_when: always
 
     - name: Change the boot variable to new IOS image (.bin)
-      ios_config:
+      cisco.ios.ios_config:
         commands:
           - "boot system flash:{{ ios_file_name }}"
         save_when: always
 
     - name: Run show boot command
-      ios_command:
+      cisco.ios.ios_command:
         commands: show boot
         wait_for:
           - result[0] contains "{{ new_ios_version }}"
       register: show_boot1
 
-    - debug:
+    - ansible.builtin.debug:
        var: show_boot1.stdout_lines
 
 ##### 8
     - name: Save running-config to startup-config
-      ios_config:
+      cisco.ios.ios_config:
         save_when: always
 
     - name: Reload the device
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - command: "reload\r"
             prompt: 'Proceed with reload? [confirm]'
@@ -170,7 +170,7 @@
   gather_facts: false
   tasks:
     - name: Pause for 5 minutes
-      pause:
+      ansible.builtin.pause:
         seconds: 300
       run_once: true
 
@@ -187,7 +187,7 @@
 
   tasks:
     - name: Restore SSH timer to default value, 10 mins
-      ios_config:
+      cisco.ios.ios_config:
         commands:
           - line vty 0 15
           - exec-timeout 10 0
@@ -208,13 +208,13 @@
       register: copy_result
 
     - name: Display copy result
-      debug:
+      ansible.builtin.debug:
         var: copy_result
 
     - name: Check the new IOS version.
-      ios_facts:
+      cisco.ios.ios_facts:
 
-    - debug:
+    - ansible.builtin.debug:
         msg:
           - "Current version is {{ ansible_net_version }}"
 
@@ -222,10 +222,10 @@
       vars:
         NEW_IOS_VERSION: "{{ new_ios_version }}"
 
-      assert:
+      ansible.builtin.assert:
         that:
           - NEW_IOS_VERSION == ansible_net_version
 
-    - debug:
+    - ansible.builtin.debug:
         msg:
           - "Cisco IOS-XE upgrade has been completed successfully"
