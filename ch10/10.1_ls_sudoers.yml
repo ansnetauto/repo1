@@ -5,9 +5,9 @@
 
   tasks:
     - name: Run ls -l /etc/sudoers.d command
-      shell: ls -l /etc/sudoers.d
+      ansible.builtin.shell: ls -l /etc/sudoers.d
       register: sudoers_output
 
     - name: Output result to screen
-      debug:
+      ansible.builtin.debug:
         var: sudoers_output.stdout_lines
