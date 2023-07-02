@@ -15,5 +15,5 @@
       register: dir_list
 
     - name: Display file names
-      debug:
+      ansible.builtin.debug:
         var: dir_list.files
