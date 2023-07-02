@@ -12,15 +12,15 @@
     file_download_time_estimation: "{{ total_host_count | int * 30 + 300 }}" # Calculate download time, base time is 5 minutes and for every host, add 30 seconds more.
 
   pre_tasks:
-    - debug:
+    - ansible.builtin.debug:
         var: total_host_count
 
-    - debug:
+    - ansible.builtin.debug:
         var: file_download_time_estimation # Turns download time to a variable
 
   tasks:
     - name: Execute show boot command
-      aireos_command:
+      community.network.aireos_command:
         username: "{{ ansible_user }}"
         password: "{{ ansible_ssh_pass }}"
         commands: show boot
@@ -28,11 +28,11 @@
           - result[0] not contains '{{ wlc_version }}'
       register: output1
 
-    - debug:
+    - ansible.builtin.debug:
         var: output1.stdout_lines
 
     - name: Change WLC transfer settings # Changes setting for file download
-      aireos_command:
+      community.network.aireos_command:
         username: "{{ ansible_user }}"
         password: "{{ ansible_ssh_user }}"
         timeout: 30
@@ -45,7 +45,7 @@
           - transfer download filename "{{ aes_file_name }}"
 
     - name: Start new aireos file transfer # Transfers .aes file
-      aireos_command:
+      community.network.aireos_command:
         username: "{{ ansible_user }}"
         password: "{{ ansible_ssh_pass }}"
         timeout: "{{ file_download_time_estimation | int }}"
@@ -56,7 +56,7 @@
         wait_for: result[0] contains "File transfer is successful"
 
     - name: Execute show boot command after file upload
-      aireos_command:
+      community.network.aireos_command:
         username: "{{ ansible_user }}"
         password: "{{ ansible_ssh_pass }}"
         commands:
@@ -64,11 +64,11 @@
       register: output2
 
     - name: Image versions after the reload
-      debug:
+      ansible.builtin.debug:
         var: output2.stdout_lines
 
     - name: Execute reset command
-      aireos_command:
+      community.network.aireos_command:
         username: "{{ ansible_user }}"
         password: "{{ ansible_ssh_pass }}"
         commands:
