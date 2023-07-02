@@ -5,11 +5,11 @@
 
   tasks:
     - name: Execute show ip interface brief
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - show ip interface brief
       register: show_output
 
     - name: Print show ip interface brief output
-      debug:
+      ansible.builtin.debug:
         var: show_output.stdout_lines
