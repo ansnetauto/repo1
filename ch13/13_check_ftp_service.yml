@@ -13,11 +13,11 @@
       ignore_errors: true # ignore errors while executing the command
 
 #    - name: Display FTP service status
-#      debug:
+#      ansible.builtin.debug:
 #        msg: "{{ ftp_status.stdout }}"
 
     - name: Display FTP service status
-      debug:
+      ansible.builtin.debug:
         msg: |
           {{
             ftp_status.stdout_lines
