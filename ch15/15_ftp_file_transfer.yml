@@ -16,13 +16,13 @@
 
   tasks:
     - name: Extend SSH timer to 99 mins
-      ios_config:
+      cisco.ios.ios_config:
         commands:
           - line vty 0 15
           - exec-timeout 99 0
 
     - name: COPY_NEW_IOS_FROM_FTP (192.168.127.151)
-      cli_command:
+      ansible.netcommon.cli_command:
          command: 'copy ftp://ppan:TinkerBell1902@192.168.127.151/{{ ios_file_name }} flash/{{ ios_file_name }}'
          check_all: True
          prompt:
