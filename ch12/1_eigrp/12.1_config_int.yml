@@ -6,11 +6,11 @@
   tasks:
     - name: Load config files
       include_vars:
-        file: "{{ inventory_hostname }}.yml" 
+        ansible.builtin.file: "{{ inventory_hostname }}.yml" 
         name: r_config
 
     - name: Configure interfaces
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "interface GigabitEthernet 0/1"
