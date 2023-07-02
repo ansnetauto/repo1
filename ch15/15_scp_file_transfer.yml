@@ -16,17 +16,17 @@
   tasks:
 
     - name: Extend SSH timer to 99 mins
-      ios_config:
+      cisco.ios.ios_config:
         commands:
           - line vty 0 15
           - exec-timeout 99 0
 
     - name: Enalbe ip scp server
-      ios_config:
+      cisco.ios.ios_config:
         commands: ip scp server enable
 
     - name: COPY_NEW_IOS_FROM_SCP (192.168.127.151)
-      cli_command:
+      ansible.netcommon.cli_command:
          command: 'copy scp://{{ scp_username }}:{{ scp_password }}@{{ scp_server_ip }}/{{ ios_file_name }} flash:/{{ ios_file_name }}'
          check_all: True
          prompt:
