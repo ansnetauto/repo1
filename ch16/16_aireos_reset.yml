@@ -7,7 +7,6 @@
 
   tasks:
     - name: Execute reset command
-      #aireos_command:
       community.network.aireos_command:
         username: "{{ ansible_user }}"
         password: "{{ ansible_ssh_pass }}"
@@ -19,5 +18,5 @@
       ignore_errors: yes
 
     - name: Print a completion message
-      debug:
+      ansible.builtin.debug:
         msg: "All Tasks completed!"
