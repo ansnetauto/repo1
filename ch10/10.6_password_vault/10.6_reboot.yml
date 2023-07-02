@@ -1,8 +1,7 @@
 ---
 - hosts: all
   become: true
-  become_user: root
 
   tasks:
     - name: reboot all nodes
-      reboot:
+      ansible.builtin.reboot:
