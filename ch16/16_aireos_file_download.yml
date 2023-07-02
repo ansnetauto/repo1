@@ -11,9 +11,9 @@
     file_upload_time_estimation: "{{ total_host_count | int * 60 + 300 }}"
 
   pre_tasks:
-    - debug:
+    - ansible.builtin.debug:
         var: total_host_count
-    - debug:
+    - ansible.builtin.debug:
         var: file_upload_time_estimation
 
   tasks:
@@ -29,7 +29,7 @@
         var: output1.stdout_lines
 
     - name: Change WLC transfer settings
-      aireos_command:
+      community.network.aireos_command:
         username: "{{ ansible_user }}"
         password: "{{ ansible_ssh_user }}"
 #        provider:
@@ -44,7 +44,7 @@
           - transfer download filename "{{ aes_file_name }}"
 
     - name: Start new aireos file transfer
-      aireos_command:
+      community.network.aireos_command:
         username: "{{ ansible_user }}"
         password: "{{ ansible_ssh_pass }}"
 #        provider:
@@ -57,7 +57,7 @@
         wait_for: result[0] contains "File transfer is successful"
 
     - name: EXECUTE show boot COMMAND after file upload
-      aireos_command:
+      community.network.aireos_command:
         username: "{{ ansible_user }}"
         password: "{{ ansible_ssh_pass }}"
         commands:
@@ -65,5 +65,5 @@
       register: output2
 
     - name: Image versions after the reload
-      debug:
+      ansible.builtin.debug:
         var: output2.stdout_lines
