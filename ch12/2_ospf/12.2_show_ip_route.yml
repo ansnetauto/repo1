@@ -5,11 +5,11 @@
 
   tasks:
     - name: Execute show ip route
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - show ip route
       register: show_output
 
     - name: Print show ip route output
-      debug:
+      ansible.builtin.debug:
         var: show_output.stdout_lines
