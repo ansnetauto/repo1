@@ -7,9 +7,9 @@
 
   tasks:
     - name: Extract version from file name
-      set_fact:
+      ansible.builtin.set_fact:
         new_ios_version: "{{ ios_file_name | regex_search('\\d{2}\\.\\d{2}\\.\\d{2}[a-z]?') }}"
 
     - name: Print extracted version
-      debug:
+      ansible.builtin.debug:
         var: new_ios_version
