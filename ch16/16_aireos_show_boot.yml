@@ -9,7 +9,7 @@
 
   tasks:
     - name: Execute show boot command
-      aireos_command:
+      community.network.aireos_command:
         username: "{{ ansible_user }}"
         password: "{{ ansible_ssh_pass }}"
         commands: show boot
@@ -17,7 +17,7 @@
           - result[0] not contains '{{ wlc_version }}'
       register: output1
 
-    - debug:
+    - ansible.builtin.debug:
         var: output1.stdout_lines
 
 
