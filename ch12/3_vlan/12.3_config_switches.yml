@@ -8,7 +8,7 @@
 
   tasks:
     - name: Configure trunk port on sw1’s Gi3/3
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "interface g3/3"
@@ -18,7 +18,7 @@
       when: inventory_hostname=='sw1'
 
     - name: Configure trunk ports on sw1, sw2
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "interface range g0/1,g0/2"
@@ -28,7 +28,7 @@
       when: inventory_hostname in ['sw1', 'sw2']
 
     - name: Configure trunk ports on sw3, sw4
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "interface range g0/2,g0/3"
@@ -38,14 +38,14 @@
       when: inventory_hostname in ['sw3', 'sw4']
 
     - name: Configure VTP on all switches
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "vtp domain ansible-vtp01"
           - "vtp password ansible"
 
     - name: Configure VLANs on sw1
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "vlan 10"
@@ -55,7 +55,7 @@
       when: inventory_hostname == 'sw1'
 
     - name: Configure access ports on sw4
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "interface Gi1/1"
