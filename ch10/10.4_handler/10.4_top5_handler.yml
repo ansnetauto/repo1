@@ -13,19 +13,19 @@
 
   tasks:
     - name: check if file exists
-      stat:
+      ansible.builtin.stat:
         path: "{{ file_path }}"
       register: file_info
 
     - name: create file if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ file_path }}"
         state: touch
         mode: "0666"
       when: not file_info.stat.exists
 
     - name: ensure file has specific contents
-      copy:
+      ansible.builtin.copy:
         dest: "{{ file_path }}"
         content: "{{ file_contents }}"
       notify: file_changed
