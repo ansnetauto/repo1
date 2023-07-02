@@ -9,23 +9,23 @@
 
   tasks:
     - name: Add a new user and set the password
-      user:
+      ansible.builtin.user:
         name: "{{ sftp_user }}"
         password: "{{ 'B3llaVita!@#' | password_hash('sha512') }}"
         update_password: always
 
     - name: Create the SFTP directory
-      file:
+      ansible.builtin.file:
         path: "{{ sftp_dir }}"
         state: directory
 
     - name: Create the SFTP data directory
-      file:
+      ansible.builtin.file:
         path: "{{ sftp_data_dir }}"
         state: directory
 
     - name: Set ownership of SFTP directories
-      file:
+      ansible.builtin.file:
         path: "{{ item.path }}"
         owner: "{{ item.owner }}"
         group: "{{ item.group }}"
@@ -35,7 +35,7 @@
         - { path: "{{ sftp_data_dir }}", owner: "{{ sftp_user }}", group: "{{ sftp_user }}", mode: "0700" } # for sftp_user
 
     - name: Copy sshd_config.j2 file from current working directory to /etc/ssh/
-      copy:
+      ansible.builtin.copy:
         src: sshd_config.j2
         dest: /etc/ssh/
         mode: '0600'
@@ -43,7 +43,7 @@
         group: root
 
     - name: Modify sshd_config file # use jinja2 template file to update the sshd_config file
-      template:
+      ansible.builtin.template:
         src: sshd_config.j2
         dest: /etc/ssh/sshd_config
         owner: root
@@ -58,7 +58,7 @@
 
   handlers:
     - name: restart sshd
-      systemd:
+      ansible.builtin.systemd:
         name: sshd
         state: restarted
       when: sshd_config_syntax.rc == 0 # execute if the previous task returned an rc value of 0, which indicates that the syntax of the sshd_config file is correct
