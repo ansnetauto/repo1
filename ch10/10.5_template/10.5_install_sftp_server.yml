@@ -52,7 +52,7 @@
       notify: restart sshd
 
     - name: Check sshd_config file syntax
-      command: sshd -t
+      ansible.builtin.command: sshd -t
       register: sshd_config_syntax
       ignore_errors: yes
 
