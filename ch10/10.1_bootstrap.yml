@@ -6,14 +6,14 @@
   pre_tasks:
   - name: install updates (Ubuntu)
     tags: always
-    apt:
+    ansible.builtin.apt:
       upgrade: dist
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
   - name: install updates (Fedora)
     tags: always
-    dnf:
+    ansible.builtin.dnf:
       update_only: yes
       update_cache: yes
     when: ansible_distribution == "Fedora"
@@ -24,19 +24,19 @@
 
   - name: create new user - jsmith
     tags: always
-    user:
+    ansible.builtin.user:
       name: jsmith
       groups: root
 
   - name: add ssh key for jsmith
     tags: always
-    authorized_key:
-      user: jsmith
+    ansible.posix.authorized_key:
+      ansible.builtin.user: jsmith
       key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFvayxHfA8pjZTldlXQdVPEK+fdjFekSPx9E4bnbPl0b ansible"
 
   - name: add sudoers file for jsmith
     tags: always
-    copy:
+    ansible.builtin.copy:
       src: sudoer_jsmith
       dest: /etc/sudoers.d/jsmith
       owner: root
