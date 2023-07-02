@@ -5,23 +5,23 @@
 
   tasks:
     - name: Check if file exists
-      stat:
+      ansible.builtin.stat:
         path: "hello_ansible.txt"
       register: file_stat
 
     - name: Create file if it doesn't exist
-      file:
+      ansible.builtin.file:
         path: "hello_ansible.txt"
         state: touch
       when: file_stat.stat.exists == false
 
     - name: Get current date and time
-      command: date +"%Y-%m-%d %H:%M:%S"
+      ansible.builtin.command: date +"%Y-%m-%d %H:%M:%S"
       register: current_datetime
       changed_when: false
 
     - name: Append to file
-      lineinfile:
+      ansible.builtin.lineinfile:
         path: "hello_ansible.txt"
         line: "Hello, Ansible! {{ current_datetime.stdout }}"
         insertafter: EOF
