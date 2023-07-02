@@ -5,7 +5,7 @@
 
   tasks:
     - name: Configure OSPF on routers
-      ios_config:
+      cisco.ios.ios_config:
         lines:
           - "router ospf 1"
           - "router-id {{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}"
@@ -14,7 +14,7 @@
       when: inventory_hostname in ['r1']
 
     - name: Configure OSPF on routers
-      ios_config:
+      cisco.ios.ios_config:
         lines:
           - "router ospf 1"
           - "router-id {{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}"
@@ -23,7 +23,7 @@
       when: inventory_hostname in ['r2']
 
     - name: Configure OSPF on routers
-      ios_config:
+      cisco.ios.ios_config:
         lines:
           - "router ospf 1"
           - "router-id {{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}"
@@ -32,7 +32,7 @@
       when: inventory_hostname in ['r3']
 
     - name: Configure OSPF on routers
-      ios_config:
+      cisco.ios.ios_config:
         lines:
           - "router ospf 1"
           - "router-id {{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}.{{ inventory_hostname[-1] }}"
