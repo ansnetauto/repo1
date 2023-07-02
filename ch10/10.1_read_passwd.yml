@@ -5,10 +5,10 @@
 
   tasks:
   - name: Read file content
-    command: cat /etc/passwd
+    ansible.builtin.command: cat /etc/passwd
     register: file_output
     become: true
 
   - name: View the last three lines of the file
-    debug: # print the contents of the file_output variable
+    ansible.builtin.debug: # print the contents of the file_output variable
       msg: "{{ file_output.stdout_lines[-3:] }}" 
