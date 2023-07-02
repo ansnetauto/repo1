@@ -4,7 +4,7 @@
   become: true
   tasks:
     - name: update package cache
-      package:
+      ansible.builtin.package:
         update_cache: yes
       changed_when: false
       tags: [always, update]
