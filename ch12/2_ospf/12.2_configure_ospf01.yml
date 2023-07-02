@@ -5,7 +5,7 @@
 
   tasks:
     - name: Configure OSPF on routers
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "router ospf 1"
@@ -15,7 +15,7 @@
       when: inventory_hostname in ['r1']
 
     - name: Configure OSPF on routers
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "router ospf 1"
@@ -25,7 +25,7 @@
       when: inventory_hostname in ['r2']
 
     - name: Configure OSPF on routers
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "router ospf 1"
@@ -35,7 +35,7 @@
       when: inventory_hostname in ['r3']
 
     - name: Configure OSPF on routers
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "configure terminal"
           - "router ospf 1"
