@@ -5,6 +5,6 @@
 
   tasks:
   - name: create a new user
-    user:
+    ansible.builtin.user:
       name: jsmith
       group: root
