@@ -38,7 +38,7 @@
 
 - name: Copy backup files to SCP server
   hosts: localhost  # Run locally
-  ansible.builtin.gather_facts: false
+  gather_facts: false
 
   vars_files:
     - vars.yml
