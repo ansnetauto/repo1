@@ -5,12 +5,12 @@
 
   tasks:
     - name: Check if backup directory exists
-      stat:
+      ansible.builtin.stat:
         path: ./backup
       register: backup_dir
 
     - name: Create backup directory
-      file:
+      ansible.builtin.file:
         path: ./backup
         state: directory
       when: not backup_dir.stat.exists
@@ -30,7 +30,7 @@
 
   tasks:
     - name: Run show run and save to a file
-      ios_config:
+      cisco.ios.ios_config:
        backup: yes
        backup_options:
          filename: "{{ inventory_hostname }}-running-config.cfg"
@@ -66,9 +66,9 @@
       loop: "{{ scp_servers }}"
 
     - name: Print message when completed
-      debug: msg="Device backup file transfer to SCP completed"
+      ansible.builtin.debug: msg="Device backup file transfer to SCP completed"
 
     - name: Remove backup directory
-      file:
+      ansible.builtin.file:
         path: "./backup/"
         state: absent
