@@ -20,7 +20,7 @@
 
   tasks:
     - name: Print User Entered Information
-      debug:
+      ansible.builtin.debug:
         msg: |
           Sudoer name: {{ sudoer_name }}
           Sudo Password: {{ ansible_become_pass }}
