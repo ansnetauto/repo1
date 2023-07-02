@@ -14,24 +14,24 @@
 
   tasks:
     - name: Install vsftpd server
-      yum:
+      ansible.builtin.yum:
         name: vsftpd
         state: present
 
     - name: Create vsftpd.conf file
-      file:
+      ansible.builtin.file:
         path: /etc/vsftpd.conf
         state: touch
 
     - name: Configure vsftpd server
-      lineinfile:
+      ansible.builtin.lineinfile:
         path: /etc/vsftpd.conf
         line: "{{ item.key }}={{ item.value }}"
       with_dict:
         - { 'anonymous_enable': 'NO', 'local_enable': 'YES', 'write_enable': 'YES', 'local_umask': '022', 'dirmessage_enable': 'YES', 'xferlog_enable': 'YES', 'connect_from_port_20': 'YES', 'chroot_local_user': 'YES', 'secure_chroot_dir': '/var/run/vsftpd/empty', 'pam_service_name': 'vsftpd', 'rsa_cert_file': '/etc/pki/tls/certs/localhost.crt', 'rsa_private_key_file': '/etc/pki/tls/private/localhost.key', 'ssl_enable': 'YES', 'allow_writeable_chroot': 'YES' }
 
     - name: Create FTP Users
-      user:
+      ansible.builtin.user:
         name: "{{ item.name }}"
         password: "{{ item.password | password_hash('sha512') }}"
         createhome: yes
@@ -40,7 +40,7 @@
       with_items: "{{ ftp_users }}"
 
     - name: Configure FTP Directory Permissions
-      file:
+      ansible.builtin.file:
         path: "{{ ftp_root_dir }}/{{ item.name }}"
         state: directory
         mode: '2775'
@@ -49,13 +49,13 @@
       with_items: "{{ ftp_users }}"
 
     - name: Allow FTP through Firewall
-      firewalld:
+      ansible.posix.firewalld:
         service: ftp
         permanent: yes
         state: enabled
         immediate: yes
 
     - name: Restart vsftpd service
-      service:
+      ansible.builtin.service:
         name: vsftpd
         state: restarted
