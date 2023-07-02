@@ -25,7 +25,7 @@
           - show boot
       register: output1
 
-    - debug:
+    - ansible.builtin.debug:
         var: output1.stdout_lines
 
     - name: Change WLC transfer settings
