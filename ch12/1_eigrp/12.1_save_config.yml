@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: Copy running-config to startup-config
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - "write memory"
 
