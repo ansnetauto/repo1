@@ -5,4 +5,4 @@
   become_user: jsmith
   tasks:
     - name: Test SSH connection
-      ping:
+      ansible.builtin.ping:
