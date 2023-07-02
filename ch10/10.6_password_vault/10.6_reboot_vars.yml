@@ -7,4 +7,4 @@
     - vars.yml
   tasks:
     - name: Reboot servers
-      reboot:
+      ansible.builtin.reboot:
